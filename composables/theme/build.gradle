@@ -1,0 +1,15 @@
+apply plugin: 'com.android.library'
+
+android {
+    buildFeatures.compose = true
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = versions.androidXComposeCompiler
+    }
+}
+
+
+dependencies {
+    implementation deps.androidX.compose.runtime
+    implementation deps.androidX.compose.material
+}

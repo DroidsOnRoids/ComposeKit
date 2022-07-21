@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    buildFeatures.compose = true
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = versions.androidXComposeCompiler
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+
+        debug {
+            applicationIdSuffix '.debug'
+        }
+    }
+
+    signingConfigs {
+        debug {
+            keyAlias 'android-debug'
+            keyPassword 'android'
+            storePassword 'android'
+            storeFile file("$rootDir/keystore/debug.keystore")
+        }
+    }
+}
+
+dependencies {
+    implementation deps.androidX.appCompat
+    implementation deps.androidX.material
+
+    implementation deps.androidX.compose.runtime
+    implementation deps.androidX.compose.material
+    implementation deps.androidX.compose.foundation
+    implementation deps.androidX.compose.navigation
+
+    implementation project(':composables:theme')
+    implementation project(':composables:button')
+}

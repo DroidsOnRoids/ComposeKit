@@ -1,0 +1,43 @@
+import org.gradle.api.internal.classpath.ModuleRegistry
+import org.gradle.api.internal.project.ProjectInternal
+
+buildscript {
+    apply from: '../dependencies.gradle'
+
+    repositories {
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath gradlePlugins.kotlinDsl
+    }
+}
+
+apply plugin: 'org.gradle.kotlin.kotlin-dsl'
+
+repositories {
+    gradlePluginPortal()
+    google()
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs += ['-Xopt-in=kotlin.RequiresOptIn']
+        jvmTarget = JavaVersion.VERSION_1_8.name()
+    }
+}
+
+dependencies {
+    implementation(gradlePlugins.android)
+    implementation(gradlePlugins.kotlin)
+
+    testImplementation(deps.junit)
+    testImplementation(deps.assertJ)
+    testImplementation(deps.mockk)
+}
