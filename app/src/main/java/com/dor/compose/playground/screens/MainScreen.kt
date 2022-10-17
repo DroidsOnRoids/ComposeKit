@@ -21,6 +21,10 @@ fun MainScreen(navController: NavController) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
         ) {
+            Button(onClick = { navController.navigate("first") }) {
+                Text("Navigation Tutorial")
+            }
+            Spacer(Modifier.height(32.dp))
             Button(onClick = { navController.navigate("customButton") }) {
                 Text(text = "Custom Buttons")
             }

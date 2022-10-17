@@ -38,6 +38,9 @@ dependencies {
     implementation deps.androidX.compose.foundation
     implementation deps.androidX.compose.navigation
 
+    debugImplementation deps.androidX.compose.preview
+    implementation deps.androidX.compose.uiTooling
+
     implementation project(':composables:theme')
     implementation project(':composables:button')
 }

@@ -28,6 +28,7 @@ ext.deps = [
             runtime: "androidx.compose.runtime:runtime:$versions.androidXCompose",
             material: "androidx.compose.material:material:$versions.androidXCompose",
             ui: "androidx.compose.ui:ui:$versions.androidXCompose",
+            uiTooling: "androidx.compose.ui:ui-tooling:$versions.androidXCompose",
             preview: "androidx.compose.ui:ui-tooling-preview:$versions.androidXCompose",
             foundation: "androidx.compose.foundation:foundation:$versions.androidXCompose",
             navigation: "androidx.navigation:navigation-compose:$versions.navigationCompose",
