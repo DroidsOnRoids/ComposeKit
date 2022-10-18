@@ -32,11 +32,25 @@ class MainActivity : AppCompatActivity() {
                         arguments = listOf(
                             navArgument("login") { type = NavType.StringType }
                         ),
-                    ) {
-                        val login = it.arguments?.getString("login").orEmpty()
-                        SecondScreen(login)
+                    ) { entry ->
+                        val login = entry.arguments?.getString("login").orEmpty()
+                        SecondScreen(login, navigateWithPassword = { password ->
+                            navController.navigate(
+                                route = "third?login=$login&password=$password"
+                            )
+                        })
                     }
-                    composable("third") { ThirdScreen() }
+                    composable(
+                        route = "third?login={login}&password={password}",
+                        arguments = listOf(
+                            navArgument("login") { type = NavType.StringType },
+                            navArgument("password") { type = NavType.StringType },
+                        )
+                    ) { entry ->
+                        val login = requireNotNull(entry.arguments).getString("login", "")
+                        val password = requireNotNull(entry.arguments).getString("password", "")
+                        ThirdScreen(login, password)
+                    }
                 }
             }
         }

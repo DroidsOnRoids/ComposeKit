@@ -32,7 +32,10 @@ import androidx.compose.ui.unit.dp
 import com.dor.compose.playground.composables.theme.MainTheme
 
 @Composable
-fun SecondScreen(login: String) {
+fun SecondScreen(
+    login: String,
+    navigateWithPassword: (String) -> Unit,
+) {
     var password by rememberSaveable {
         mutableStateOf("Password")
     }
@@ -76,6 +79,7 @@ fun SecondScreen(login: String) {
                 colors = ButtonDefaults.buttonColors(backgroundColor = White),
                 modifier = Modifier.padding(5.dp),
                 onClick = {
+                    navigateWithPassword(password)
                     //TODO: Navigate to third screen with login and password values
                 }
             ) {

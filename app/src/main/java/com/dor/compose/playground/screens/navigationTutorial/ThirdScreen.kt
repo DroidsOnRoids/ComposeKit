@@ -21,7 +21,10 @@ import androidx.compose.ui.unit.dp
 import com.dor.compose.playground.composables.theme.MainTheme
 
 @Composable
-fun ThirdScreen() {
+fun ThirdScreen(
+    login: String,
+    password: String,
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -36,7 +39,7 @@ fun ThirdScreen() {
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Show login here",
+                text = login,
                 color = Color.White,
                 fontSize = MaterialTheme.typography.h3.fontSize,
                 fontWeight = FontWeight.Bold
@@ -49,7 +52,7 @@ fun ThirdScreen() {
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Show password here",
+                text = password,
                 color = Color.Yellow,
                 fontSize = MaterialTheme.typography.h3.fontSize,
                 fontWeight = FontWeight.Bold
@@ -110,6 +113,6 @@ fun ThirdScreen() {
 @Composable
 fun ThirdScreenPreview() {
     MainTheme {
-        ThirdScreen()
+        //ThirdScreen()
     }
 }
