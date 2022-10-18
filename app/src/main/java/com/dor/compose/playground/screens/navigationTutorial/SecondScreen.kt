@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import com.dor.compose.playground.composables.theme.MainTheme
 
 @Composable
-fun SecondScreen() {
+fun SecondScreen(login: String) {
     var password by rememberSaveable {
         mutableStateOf("Password")
     }
@@ -50,7 +50,7 @@ fun SecondScreen() {
             horizontalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Show login here",
+                text = login,
                 color = Yellow,
                 fontSize = MaterialTheme.typography.h3.fontSize,
                 fontWeight = FontWeight.Bold
@@ -120,6 +120,6 @@ fun SecondScreen() {
 @Composable
 fun SecondScreenPreview() {
     MainTheme {
-        SecondScreen()
+        //        SecondScreen()
     }
 }

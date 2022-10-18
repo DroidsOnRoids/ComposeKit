@@ -25,10 +25,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.dor.compose.playground.composables.theme.MainTheme
 
 @Composable
-fun FirstScreen() {
+fun FirstScreen(
+    navController: NavController,
+) {
     var login by rememberSaveable {
         mutableStateOf("Login")
     }
@@ -59,7 +62,7 @@ fun FirstScreen() {
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color.White),
                 modifier = Modifier.padding(5.dp),
                 onClick = {
-                    //TODO: Navigate to second screen with login value
+                    navController.navigate("second?login=${login}")
                 }
             ) {
                 Text(
@@ -79,6 +82,6 @@ fun FirstScreen() {
 @Composable
 fun FirstScreenPreview() {
     MainTheme {
-        FirstScreen()
+//        FirstScreen()
     }
 }

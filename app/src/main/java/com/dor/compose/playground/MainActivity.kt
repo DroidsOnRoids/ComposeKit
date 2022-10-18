@@ -3,9 +3,11 @@ package com.dor.compose.playground
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.dor.compose.playground.composables.theme.MainTheme
 import com.dor.compose.playground.screens.CustomButtonsScreen
 import com.dor.compose.playground.screens.MainScreen
@@ -24,8 +26,16 @@ class MainActivity : AppCompatActivity() {
                 NavHost(navController, startDestination = "main") {
                     composable("main") { MainScreen(navController) }
                     composable("customButton") { CustomButtonsScreen() }
-                    composable("first") { FirstScreen() }
-                    composable("second") { SecondScreen() }
+                    composable(route = "first", content = { FirstScreen(navController) })
+                    composable(
+                        route = "second?login={login}",
+                        arguments = listOf(
+                            navArgument("login") { type = NavType.StringType }
+                        ),
+                    ) {
+                        val login = it.arguments?.getString("login").orEmpty()
+                        SecondScreen(login)
+                    }
                     composable("third") { ThirdScreen() }
                 }
             }
