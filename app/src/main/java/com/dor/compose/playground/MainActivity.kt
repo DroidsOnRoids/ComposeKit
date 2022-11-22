@@ -8,7 +8,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.dor.compose.playground.composables.theme.MainTheme
 import com.dor.compose.playground.screens.CustomButtonsScreen
+import com.dor.compose.playground.screens.CustomPullRefreshScreen
 import com.dor.compose.playground.screens.MainScreen
+import com.dor.compose.playground.screens.PullRefreshScreen
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +23,8 @@ class MainActivity : AppCompatActivity() {
                 NavHost(navController, startDestination = "main") {
                     composable("main") { MainScreen(navController) }
                     composable("customButton") { CustomButtonsScreen() }
+                    composable("pulltorefresh") { PullRefreshScreen() }
+                    composable("custompulltorefresh") { CustomPullRefreshScreen() }
                 }
             }
         }
