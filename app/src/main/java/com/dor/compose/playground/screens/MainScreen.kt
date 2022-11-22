@@ -19,10 +19,18 @@ fun MainScreen(navController: NavController) {
     Surface(modifier = Modifier.fillMaxSize()) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             Button(onClick = { navController.navigate("customButton") }) {
                 Text(text = "Custom Buttons")
+            }
+            Button(onClick = { navController.navigate("pulltorefresh") }) {
+                Text(text = "[Material] Pull to refresh")
+            }
+            Button(
+                onClick = { navController.navigate("custompulltorefresh") }
+            ) {
+                Text(text = "[Custom] Pull to refresh")
             }
             Spacer(modifier = Modifier.height(16.dp))
         }
