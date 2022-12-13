@@ -2,10 +2,6 @@ import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 import plugins.module.ModuleGenerationPlugin
 
-apply plugin: 'io.gitlab.arturbosch.detekt'
-apply plugin: ModuleGenerationPlugin
-apply from: "$project.rootDir/gradle/configure-android.gradle"
-apply from: "$project.rootDir/gradle/configure-kotlin.gradle"
 
 buildscript {
     apply from: 'dependencies.gradle'
@@ -21,6 +17,11 @@ buildscript {
         classpath gradlePlugins.detekt
     }
 }
+
+apply plugin: 'io.gitlab.arturbosch.detekt'
+apply plugin: ModuleGenerationPlugin
+apply from: "$project.rootDir/gradle/configure-android.gradle"
+apply from: "$project.rootDir/gradle/configure-kotlin.gradle"
 
 allprojects {
     repositories {
