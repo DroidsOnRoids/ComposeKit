@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.dor.compose.playground.composables.autoResizedText.AutoResizedText
+import com.dor.compose.playground.composables.autoresizedtext.AutoResizedText
 
 @Composable
 fun AutoResizedTextScreen() {
@@ -24,6 +24,6 @@ fun AutoResizedTextScreen() {
         verticalArrangement = Arrangement.spacedBy(space = 16.dp, alignment = Alignment.CenterVertically))
     {
         Text(text = text, style = TextStyle(fontSize = 26.sp), softWrap = false, color = Color.Black)
-        AutoResizedText(text = text, style = TextStyle(fontSize = 26.sp), color = Color.Blue)
+        AutoResizedText(text = text, style = TextStyle(fontSize = 26.sp, color = Color.Blue))
     }
 }
