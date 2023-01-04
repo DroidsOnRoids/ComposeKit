@@ -41,4 +41,5 @@ dependencies {
     implementation project(':composables:theme')
     implementation project(':composables:button')
     implementation project(':composables:pullToRefresh')
+    implementation project(':composables:autoResizedText')
 }

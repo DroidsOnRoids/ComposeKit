@@ -32,6 +32,11 @@ fun MainScreen(navController: NavController) {
             ) {
                 Text(text = "[Custom] Pull to refresh")
             }
+            Button(
+                onClick = { navController.navigate("autoresizedtext") }
+            ) {
+                Text(text = "Auto resized text")
+            }
             Spacer(modifier = Modifier.height(16.dp))
         }
     }
