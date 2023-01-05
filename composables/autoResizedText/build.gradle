@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 
 android {
+    namespace = "com.dor.compose.playground.composables.autoresizedtext"
     buildFeatures.compose = true
 
     composeOptions {
