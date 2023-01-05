@@ -33,6 +33,11 @@ fun MainScreen(navController: NavController) {
                 Text(text = "[Custom] Pull to refresh")
             }
             Button(
+                onClick = { navController.navigate("navigationLibrary") }
+            ) {
+                Text(text = "Navigation library")
+            }
+            Button(
                 onClick = { navController.navigate("autoresizedtext") }
             ) {
                 Text(text = "Auto resized text")

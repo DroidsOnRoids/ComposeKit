@@ -1,0 +1,41 @@
+plugins {
+    id 'com.google.devtools.ksp' version '1.7.20-1.0.8'
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+}
+android {
+    buildFeatures.compose = true
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = versions.androidXComposeCompiler
+    }
+
+    libraryVariants.all { variant ->
+        kotlin.sourceSets {
+            getByName(variant.name) {
+                kotlin.srcDir("build/generated/ksp/${variant.name}/kotlin")
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation deps.androidX.compose.runtime
+    implementation deps.androidX.compose.ui
+    implementation deps.androidX.compose.material
+
+    implementation deps.androidX.compose.runtime
+    implementation deps.androidX.compose.material
+    implementation deps.androidX.compose.foundation
+    implementation deps.androidX.compose.navigation
+
+    implementation deps.composeDestinationsCore
+    ksp deps.composeDestinationsKsp
+
+    implementation deps.dagger
+    kapt deps.daggerCompiler
+
+    implementation project(':composables:utils')
+}

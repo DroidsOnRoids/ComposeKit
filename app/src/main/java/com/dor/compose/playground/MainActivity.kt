@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.dor.compose.playground.composables.theme.MainTheme
+import com.dor.compose.playground.composedestinationslibrary.screens.NavigationLibraryEntryScreen
 import com.dor.compose.playground.screens.AutoResizedTextScreen
 import com.dor.compose.playground.screens.CustomButtonsScreen
 import com.dor.compose.playground.screens.CustomPullRefreshScreen
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
                     composable("customButton") { CustomButtonsScreen() }
                     composable("pulltorefresh") { PullRefreshScreen() }
                     composable("custompulltorefresh") { CustomPullRefreshScreen() }
+                    composable("navigationLibrary") { NavigationLibraryEntryScreen() }
                     composable("autoresizedtext") { AutoResizedTextScreen() }
                 }
             }
