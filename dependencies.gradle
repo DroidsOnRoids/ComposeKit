@@ -1,5 +1,5 @@
 ext.versions = [
-    androidPlugin          : '7.2.1',
+    androidPlugin          : '8.0.2',
     detekt                 : '1.21.0',
     kotlin                 : '1.7.20',
     kotlinDsl              : '2.1.7',
