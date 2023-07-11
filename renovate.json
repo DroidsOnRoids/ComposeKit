@@ -1,0 +1,19 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "separateMajorMinor": false,
+  "packageRules": [
+    {
+      "matchPackagePatterns": [
+        "androidx"
+      ],
+      "groupName": "AndroidX dependencies",
+      "groupSlug": "androidx"
+    }
+  ],
+  "schedule": [
+    "before 3am on the first day of the month"
+  ]
+}
