@@ -1,6 +1,6 @@
 ext.versions = [
     androidPlugin          : '8.0.2',
-    detekt                 : '1.21.0',
+    detekt                 : '1.23.0',
     kotlin                 : '1.7.20',
     kotlinDsl              : '2.1.7',
     androidXAppCompat      : '1.4.2',
