@@ -17,12 +17,13 @@ import com.dor.compose.playground.composables.autoresizedtext.AutoResizedText
 @Composable
 fun AutoResizedTextScreen() {
     val text = "Hello World!, Hello World!, Hello World!"
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .padding(horizontal = 16.dp),
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(space = 16.dp, alignment = Alignment.CenterVertically))
-    {
+        verticalArrangement = Arrangement.spacedBy(space = 16.dp, alignment = Alignment.CenterVertically)
+    ) {
         Text(text = text, style = TextStyle(fontSize = 26.sp), softWrap = false, color = Color.Black)
         AutoResizedText(text = text, style = TextStyle(fontSize = 26.sp, color = Color.Blue))
     }

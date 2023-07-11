@@ -6,6 +6,6 @@ import com.ramcosta.composedestinations.annotation.Destination
 
 @Destination
 @Composable
-internal fun SimpleScreen(){
+internal fun SimpleScreen() {
     Text(text = "Simple screen")
 }

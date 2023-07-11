@@ -1,3 +1,5 @@
+@file:Suppress("Filename")
+
 package com.dor.compose.playground
 
 import androidx.compose.animation.core.LinearOutSlowInEasing
