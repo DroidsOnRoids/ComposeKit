@@ -10,7 +10,7 @@ ext.versions = [
     navigationCompose      : '2.6.0',
     assertJ                : '3.24.2',
     junit                  : '4.13.2',
-    mockk                  : '1.12.4',
+    mockk                  : '1.13.5',
     composeDestinations    : '1.7.27-beta',
     dagger                 : '2.44.2'
 ]
