@@ -14,7 +14,6 @@ android {
         kotlinCompilerExtensionVersion = deps.versions.androidXComposeCompiler.get()
     }
 
-
     buildTypes {
         named("release").configure {
             isMinifyEnabled = false

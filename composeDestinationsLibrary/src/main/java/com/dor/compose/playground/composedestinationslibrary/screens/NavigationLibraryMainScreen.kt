@@ -1,6 +1,5 @@
 package com.dor.compose.playground.composedestinationslibrary.screens
 
-import ComposeDestinationsLibraryNavGraph
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.dor.compose.playground.composedestinationslibrary.models.User
+import com.dor.compose.playground.composedestinationslibrary.navgraphs.ComposeDestinationsLibraryNavGraph
 import com.dor.compose.playground.composedestinationslibrary.screens.destinations.NavigationWithArgsScreenDestination
 import com.dor.compose.playground.composedestinationslibrary.screens.destinations.NavigationWithArgsToViewModelScreenDestination
 import com.dor.compose.playground.composedestinationslibrary.screens.destinations.NavigationWithResultScreenDestination
@@ -26,7 +26,6 @@ import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import com.ramcosta.composedestinations.result.NavResult
 import com.ramcosta.composedestinations.result.ResultRecipient
-
 
 @ComposeDestinationsLibraryNavGraph(start = true)
 @Destination
@@ -74,7 +73,8 @@ private fun NavButton(text: String, onClick: () -> Unit) {
             .padding(horizontal = 24.dp),
         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Blue),
         shape = RoundedCornerShape(10.dp),
-        onClick = { onClick() }) {
+        onClick = { onClick() }
+    ) {
         Text(text = text, color = Color.White)
     }
 }
