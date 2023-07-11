@@ -11,8 +11,9 @@ ext.versions = [
     assertJ                : '3.24.2',
     junit                  : '4.13.2',
     mockk                  : '1.13.5',
-    composeDestinations    : '1.7.27-beta',
-    dagger                 : '2.44.2'
+    composeDestinations    : '1.7.27-beta', // TODO Bump version
+    dagger                 : '2.45'
+    // TODO Renovate ?
 ]
 
 //@formatter:off
