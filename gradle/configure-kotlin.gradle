@@ -1,7 +1,0 @@
-import org.jetbrains.kotlin.gradle.plugin.KotlinPlugin
-
-allprojects {
-    plugins.withType(KotlinPlugin) {
-        project.apply from: "$project.rootDir/gradle/common-kotlin.gradle"
-    }
-}

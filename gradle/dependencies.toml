@@ -1,0 +1,56 @@
+# Renovate ?
+[versions]
+androidPlugin = "8.0.2"
+detekt = "1.23.0"
+kotlin = "1.8.22"
+androidXAppCompat = "1.6.1"
+material = "1.9.0"
+androidXComposeCompiler = "1.4.8"
+androidXCompose = "1.4.3"
+navigationCompose = "2.6.0"
+assertJ = "3.24.2"
+junit = "4.13.2"
+kotlinPoet = "1.14.2"
+ksp = "1.8.22-1.0.11"
+mockk = "1.13.5"
+composeDestinations = "1.7.27-beta" # TODO Bump version
+dagger = "2.45"
+
+[libraries]
+gradlePlugins-android = { group = "com.android.tools.build", name = "gradle", version.ref = "androidPlugin" }
+gradlePlugins-detekt = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
+gradlePlugins-detektFormatting = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
+gradlePlugins-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
+androidX-appCompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidXAppCompat" }
+androidX-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+androidX-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "androidXCompose" }
+androidX-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "androidXCompose" }
+androidX-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidXCompose" }
+androidX-compose-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidXCompose" }
+androidX-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidXCompose" }
+androidX-compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+
+composeDestinations-core = { group = "io.github.raamcosta.compose-destinations", name = "core", version.ref = "composeDestinations" }
+composeDestinations-ksp = { group = "io.github.raamcosta.compose-destinations", name = "ksp", version.ref = "composeDestinations" }
+
+kotlinPoet = { group = "com.squareup", name = "kotlinpoet", version.ref = "kotlinPoet" }
+
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+assertJ = { group = "org.assertj", name = "assertj-core", version.ref = "assertJ" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+
+dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
+daggerCompiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
+
+[plugins]
+application = { id = "com.android.application", version.ref = "androidPlugin" }
+library = { id = "com.android.library", version.ref = "androidPlugin" }
+playgroundAndroid = { id = "com.dor.compose.playground.android" }
+playgroundKotlin = { id = "com.dor.compose.playground.kotlin" }
+playgroundJava = { id = "com.dor.compose.playground.java" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
+parcelize = { id = "kotlin-parcelize", version.ref = "kotlin" }
+kapt = { id = "kotlin-kapt", version.ref = "kotlin" }
