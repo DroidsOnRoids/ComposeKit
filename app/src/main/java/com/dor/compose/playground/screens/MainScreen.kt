@@ -42,6 +42,13 @@ fun MainScreen(navController: NavController) {
             ) {
                 Text(text = "Auto resized text")
             }
+            Button(
+                onClick = {
+                    navController.navigate("collapsingtoolbar")
+                }
+            ) {
+                Text(text = "Collapsing Toolbar")
+            }
             Spacer(modifier = Modifier.height(16.dp))
         }
     }

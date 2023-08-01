@@ -13,6 +13,7 @@ import com.dor.compose.playground.screens.CustomButtonsScreen
 import com.dor.compose.playground.screens.CustomPullRefreshScreen
 import com.dor.compose.playground.screens.MainScreen
 import com.dor.compose.playground.screens.PullRefreshScreen
+import com.dor.compose.playground.screens.CollapsingToolbarScreen
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
                     composable("custompulltorefresh") { CustomPullRefreshScreen() }
                     composable("navigationLibrary") { NavigationLibraryEntryScreen() }
                     composable("autoresizedtext") { AutoResizedTextScreen() }
+                    composable("collapsingtoolbar") { CollapsingToolbarScreen() }
                 }
             }
         }
