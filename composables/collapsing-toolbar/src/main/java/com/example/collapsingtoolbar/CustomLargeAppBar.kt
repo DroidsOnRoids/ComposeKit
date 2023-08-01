@@ -11,13 +11,13 @@ import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.WindowInsetsSides
-import androidx.compose.foundation.layout.only
+import androidx.compose.foundation.layout.asPaddingValues
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalContentColor
@@ -34,6 +34,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
@@ -59,12 +60,13 @@ private val TopTitleAlphaEasing = CubicBezierEasing(.8f, 0f, .8f, .15f)
 @Composable
 fun ParallaxAppBar(
     title: @Composable () -> Unit,
+    expandedBackground: @Composable () -> Unit,
     modifier: Modifier = Modifier,
     navigationIcon: @Composable () -> Unit = {},
     actions: @Composable RowScope.() -> Unit = {},
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
     colors: TopAppBarColors = TopAppBarColors(
-        navigationIconContentColor = Color.Blue,
+        navigationIconContentColor = Color.Green,
         titleContentColor = Color.Cyan,
         actionIconContentColor = Color.Magenta,
     ),
@@ -76,6 +78,7 @@ fun ParallaxAppBar(
         smallTitleTextStyle = MaterialTheme.typography.headlineSmall,
         titleBottomPadding = 28.dp,
         smallTitle = title,
+        expandedBackground = expandedBackground,
         modifier = modifier,
         navigationIcon = navigationIcon,
         actions = actions,
@@ -96,6 +99,7 @@ private fun ParallaxAppBar(
     titleBottomPadding: Dp,
     smallTitle: @Composable () -> Unit,
     smallTitleTextStyle: TextStyle,
+    expandedBackground: @Composable () -> Unit,
     navigationIcon: @Composable () -> Unit,
     actions: @Composable RowScope.() -> Unit,
     windowInsets: WindowInsets,
@@ -104,7 +108,7 @@ private fun ParallaxAppBar(
     pinnedHeight: Dp,
     scrollBehavior: TopAppBarScrollBehavior?,
 ) {
-    require(maxHeight <= pinnedHeight) { "A TwoRowsTopAppBar max height should be greater than its pinned height" }
+    require(maxHeight > pinnedHeight) { "A TwoRowsTopAppBar max height should be greater than its pinned height" }
     val pinnedHeightPx: Float
     val maxHeightPx: Float
     val titleBottomPaddingPx: Int
@@ -114,11 +118,15 @@ private fun ParallaxAppBar(
         titleBottomPaddingPx = titleBottomPadding.roundToPx()
     }
 
+    // retrieve status bar height
+    val inset = WindowInsets.systemBars.asPaddingValues()
+
     // Sets the app bar's height offset limit to hide just the bottom title area and keep top title
     // visible when collapsed.
+    // TODO Handle status bar height
     SideEffect {
-        if (scrollBehavior?.state?.heightOffsetLimit != pinnedHeightPx - maxHeightPx) {
-            scrollBehavior?.state?.heightOffsetLimit = pinnedHeightPx - maxHeightPx
+        if (scrollBehavior?.state?.heightOffsetLimit != pinnedHeightPx - maxHeightPx + 66f) {
+            scrollBehavior?.state?.heightOffsetLimit = pinnedHeightPx - maxHeightPx + 66f // status bar height
         }
     }
 
@@ -129,6 +137,7 @@ private fun ParallaxAppBar(
     // container's scrolled color according to the app bar's scroll state.
     val colorTransitionFraction = scrollBehavior?.state?.collapsedFraction ?: 0f
     val appBarContainerColor by rememberUpdatedState(Color.Blue)
+    val colorTransitionFraction2 = scrollBehavior?.state?.collapsedFraction ?: 0f
 
     // Wrap the given actions in a Row.
     val actionsRow = @Composable {
@@ -139,7 +148,7 @@ private fun ParallaxAppBar(
         )
     }
     val topTitleAlpha = TopTitleAlphaEasing.transform(colorTransitionFraction)
-    val bottomTitleAlpha = 1f - colorTransitionFraction
+    val expandedBackgroundAlpha = 1f - colorTransitionFraction2
     // Hide the top row title semantics when its alpha value goes below 0.5 threshold.
     // Hide the bottom row title semantics when the top title semantics are active.
     val hideTopRowSemantics = colorTransitionFraction < 0.5f
@@ -165,51 +174,39 @@ private fun ParallaxAppBar(
         Modifier
     }
 
-    Surface(modifier = modifier.then(appBarDragModifier), color = appBarContainerColor) {
-        Column {
-            TopAppBarLayout(
-                modifier = Modifier
-                    .windowInsetsPadding(windowInsets)
-                    // clip after padding so we don't show the title over the inset area
-                    .clipToBounds(),
-                heightPx = pinnedHeightPx,
-                navigationIconContentColor =
-                colors.navigationIconContentColor,
-                titleContentColor = colors.titleContentColor,
-                actionIconContentColor =
-                colors.actionIconContentColor,
-                title = smallTitle,
-                titleTextStyle = smallTitleTextStyle,
-                titleAlpha = topTitleAlpha,
-                titleVerticalArrangement = Arrangement.Center,
-                titleHorizontalArrangement = Arrangement.Start,
-                titleBottomPadding = 0,
-                hideTitleSemantics = hideTopRowSemantics,
-                navigationIcon = navigationIcon,
-                actions = actionsRow,
-            )
-            TopAppBarLayout(
-                modifier = Modifier
-                    // only apply the horizontal sides of the window insets padding, since the top
-                    // padding will always be applied by the layout above
-                    .windowInsetsPadding(windowInsets.only(WindowInsetsSides.Horizontal))
-                    .clipToBounds(),
-                heightPx = maxHeightPx - pinnedHeightPx + (scrollBehavior?.state?.heightOffset ?: 0f),
-                navigationIconContentColor =
-                colors.navigationIconContentColor,
-                titleContentColor = colors.titleContentColor,
-                actionIconContentColor =
-                colors.actionIconContentColor,
-                title = title,
-                titleTextStyle = titleTextStyle,
-                titleAlpha = bottomTitleAlpha,
-                titleVerticalArrangement = Arrangement.Bottom,
-                titleHorizontalArrangement = Arrangement.Start,
-                titleBottomPadding = titleBottomPaddingPx,
-                hideTitleSemantics = hideBottomRowSemantics,
-                navigationIcon = {},
-                actions = {}
-            )
+    Surface(
+        modifier = modifier.then(appBarDragModifier),
+        color = appBarContainerColor
+    ) {
+        TopAppBarLayout(
+            modifier = Modifier
+                .windowInsetsPadding(windowInsets)
+                // clip after padding so we don't show the title over the inset area
+                .clipToBounds(),
+            heightPx = pinnedHeightPx,
+            navigationIconContentColor =
+            colors.navigationIconContentColor,
+            titleContentColor = colors.titleContentColor,
+            actionIconContentColor =
+            colors.actionIconContentColor,
+            title = smallTitle,
+            titleTextStyle = smallTitleTextStyle,
+            titleAlpha = topTitleAlpha,
+            titleVerticalArrangement = Arrangement.Center,
+            titleHorizontalArrangement = Arrangement.Start,
+            titleBottomPadding = 0,
+            hideTitleSemantics = hideTopRowSemantics,
+            navigationIcon = navigationIcon,
+            actions = actionsRow,
+        )
+        Box(
+            modifier = Modifier
+                .height((maxHeightPx - pinnedHeightPx + (scrollBehavior?.state?.heightOffset ?: 0f)).dp)
+                .alpha(expandedBackgroundAlpha)
+                .clipToBounds()
+        ) {
+            // TODO Match conetnt height instead of fixed height (eg. Vertical picture)
+            expandedBackground()
         }
     }
 }
@@ -394,6 +391,7 @@ private suspend fun settleAppBar(
     return Velocity(0f, remainingVelocity)
 }
 
+// TODO Rename
 class TopAppBarColors(
     val navigationIconContentColor: Color,
     val titleContentColor: Color,
