@@ -34,10 +34,10 @@ extensions.getByType(SettingsExtension::class).apply {
     minSdk = 24
 }
 
+include(":composeDestinationsLibrary")
 include(":composables:button")
 include(":composables:utils")
 include(":composables:theme")
 include(":composables:pullToRefresh")
-include(":composables:foldableToolbar")
-include(":composeDestinationsLibrary")
 include(":composables:autoResizedText")
+include(":composables:collapsing-toolbar")

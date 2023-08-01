@@ -40,4 +40,5 @@ dependencies {
     implementation(project(":composables:pullToRefresh"))
     implementation(project(":composeDestinationsLibrary"))
     implementation(project(":composables:autoResizedText"))
+    implementation(project(":composables:collapsing-toolbar"))
 }
