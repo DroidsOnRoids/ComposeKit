@@ -28,6 +28,7 @@ androidX-material = { group = "com.google.android.material", name = "material", 
 androidX-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "androidXCompose" }
 androidX-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "androidXCompose" }
 androidX-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidXCompose" }
+androidX-compose-uiTooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "androidXCompose" }
 androidX-compose-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidXCompose" }
 androidX-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidXCompose" }
 androidX-compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
