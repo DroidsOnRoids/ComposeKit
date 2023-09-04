@@ -42,6 +42,7 @@ fun ScrollableWithFoldableToolbar(
     val nestedScrollConnection = remember {
         object : NestedScrollConnection {
             override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset {
+                if (available.x != 0f) return Offset.Zero
                 val delta = available.y
                 val newOffset = topBarOffsetHeightPx + delta
                 topBarOffsetHeightPx = newOffset.coerceIn(-topBarHeightPx, 0f)
