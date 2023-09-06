@@ -6,7 +6,7 @@ kotlin = "1.8.22"
 androidXAppCompat = "1.6.1"
 material = "1.9.0"
 androidXComposeCompiler = "1.4.8"
-androidXCompose = "1.4.3"
+androidXComposeBom = "2023.08.00"
 navigationCompose = "2.6.0"
 assertJ = "3.24.2"
 junit = "4.13.2"
@@ -25,12 +25,13 @@ gradlePlugins-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-p
 androidX-appCompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidXAppCompat" }
 androidX-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
-androidX-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "androidXCompose" }
-androidX-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "androidXCompose" }
-androidX-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidXCompose" }
-androidX-compose-uiTooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "androidXCompose" }
-androidX-compose-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidXCompose" }
-androidX-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidXCompose" }
+androidX-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidXComposeBom" }
+androidX-compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
+androidX-compose-material = { group = "androidx.compose.material", name = "material" }
+androidX-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidX-compose-uiTooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidX-compose-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidX-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
 androidX-compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 
 composeDestinations-core = { group = "io.github.raamcosta.compose-destinations", name = "core", version.ref = "composeDestinations" }
