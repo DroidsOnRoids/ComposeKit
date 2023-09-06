@@ -14,6 +14,7 @@ class ConfigureComposeModulePlugin : Plugin<Project> {
         baseExtension.applyComposeCommons(this)
 
         dependencies {
+            "implementation"(platform(deps.findLibrary("androidX.compose.bom").get()))
             "implementation"(deps.findBundle("compose.basic").get())
             "debugImplementation"(deps.findLibrary("androidX.compose.uiTooling").get())
         }
