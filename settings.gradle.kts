@@ -30,7 +30,7 @@ plugins {
 
 @Suppress("UnstableApiUsage")
 extensions.getByType(SettingsExtension::class).apply {
-    compileSdk = 33
+    compileSdk = 34
     minSdk = 24
 
     execution {
