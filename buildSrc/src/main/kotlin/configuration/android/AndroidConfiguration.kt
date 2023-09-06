@@ -7,7 +7,7 @@ import utils.ContinuousIntegration
 
 internal fun BaseExtension.applyAndroidCommons(project: Project) = apply {
     defaultConfig {
-        targetSdk = BuildConfig.TARGET_SDK
+        targetSdk = 33
         vectorDrawables.useSupportLibrary = true
     }
 
