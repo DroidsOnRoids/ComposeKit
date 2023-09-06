@@ -3,16 +3,11 @@ plugins {
     id(deps.plugins.playgroundAndroid.get().pluginId)
     id(deps.plugins.playgroundKotlin.get().pluginId)
     id(deps.plugins.playgroundJava.get().pluginId)
+    id(deps.plugins.playgroundCompose.get().pluginId)
 }
 
 android {
     namespace = "com.dor.compose.playground"
-
-    buildFeatures.compose = true
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = deps.versions.androidXComposeCompiler.get()
-    }
 
     buildTypes {
         named("release").configure {
@@ -38,9 +33,6 @@ dependencies {
     implementation(deps.androidX.appCompat)
     implementation(deps.androidX.material)
 
-    implementation(deps.androidX.compose.runtime)
-    implementation(deps.androidX.compose.material)
-    implementation(deps.androidX.compose.foundation)
     implementation(deps.androidX.compose.navigation)
 
     implementation(project(":composables:theme"))
