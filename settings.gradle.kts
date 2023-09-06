@@ -32,18 +32,6 @@ plugins {
 extensions.getByType(SettingsExtension::class).apply {
     compileSdk = 34
     minSdk = 24
-
-    execution {
-        profiles {
-            create("local") {
-                r8 {
-                    jvmOptions.addAll(listOf("-Xms2048m", "-Xmx8192m", "-XX:+HeapDumpOnOutOfMemoryError"))
-                    runInSeparateProcess = true
-                }
-            }
-        }
-        defaultProfile = "local"
-    }
 }
 
 include(":composables:button")
