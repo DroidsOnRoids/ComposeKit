@@ -19,6 +19,10 @@ gradlePlugin {
             id = "com.dor.compose.playground.kotlin"
             implementationClass = "configuration.kotlin.ConfigureKotlinModulePlugin"
         }
+        register("com.dor.compose.playground.compose") {
+            id = "com.dor.compose.playground.compose"
+            implementationClass = "configuration.compose.ConfigureComposeModulePlugin"
+        }
     }
 }
 
