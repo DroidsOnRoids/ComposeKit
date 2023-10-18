@@ -17,7 +17,7 @@ internal fun LazyItemScope.DraggableItem(
     index: Int,
     content: @Composable ColumnScope.(isDragging: Boolean) -> Unit,
 ) {
-    val dragging = index == dragDropState.draggingItemIndex
+    val dragging = dragDropState.isDraggingItem(index)
     val draggingModifier = if (dragging) {
         Modifier
             .zIndex(1f)

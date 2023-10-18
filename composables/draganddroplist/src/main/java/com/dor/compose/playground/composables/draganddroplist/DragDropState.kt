@@ -3,6 +3,8 @@ package com.dor.compose.playground.composables.draganddroplist
 import androidx.compose.foundation.lazy.LazyListItemInfo
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
@@ -17,8 +19,8 @@ internal class DragDropState internal constructor(
     private val onDragEnd: () -> Unit,
 ) {
 
-    private var draggingItemDraggedDelta by mutableStateOf(0f)
-    private var draggingItemInitialOffset by mutableStateOf(0)
+    private var draggingItemDraggedDelta by mutableFloatStateOf(0f)
+    private var draggingItemInitialOffset by mutableIntStateOf(0)
 
     private val draggingItemLayoutInfo: LazyListItemInfo?
         get() = state.layoutInfo.visibleItemsInfo.firstOrNull { it.index == draggingItemIndex }
@@ -26,17 +28,16 @@ internal class DragDropState internal constructor(
     private val LazyListItemInfo.offsetEnd
         get() = this.offset + this.size
 
-    internal val draggingItemOffset: Float
+    private var draggingItemIndex by mutableStateOf<Int?>(null)
+
+    val draggingItemOffset: Float
         get() = draggingItemLayoutInfo?.let { item ->
             draggingItemInitialOffset + draggingItemDraggedDelta - item.offset
         } ?: 0f
 
-    internal val scrollChannel = Channel<Float>()
+    val scrollChannel = Channel<Float>()
 
-    internal var draggingItemIndex by mutableStateOf<Int?>(null)
-        private set
-
-    internal fun onDragStart(offset: Offset) {
+    fun onDragStart(offset: Offset) {
         state.layoutInfo.visibleItemsInfo
             .firstOrNull { item ->
                 offset.y.toInt() in item.offset..(item.offsetEnd)
@@ -46,14 +47,14 @@ internal class DragDropState internal constructor(
             }
     }
 
-    internal fun onDragInterrupted() {
+    fun onDragInterrupted() {
         draggingItemDraggedDelta = 0f
         draggingItemIndex = null
         draggingItemInitialOffset = 0
         onDragEnd()
     }
 
-    internal fun onDrag(offset: Offset) {
+    fun onDrag(offset: Offset) {
         draggingItemDraggedDelta += offset.y
         val draggingItem = draggingItemLayoutInfo ?: return
         val startOffset = draggingItem.offset + draggingItemOffset
@@ -103,4 +104,6 @@ internal class DragDropState internal constructor(
             scrollChannel.trySend(overscroll)
         }
     }
+
+    fun isDraggingItem(index: Int) = draggingItemIndex == index
 }
