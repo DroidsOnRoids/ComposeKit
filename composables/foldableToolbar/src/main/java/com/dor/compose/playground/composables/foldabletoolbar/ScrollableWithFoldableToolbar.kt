@@ -22,6 +22,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.coerceAtLeast
 import androidx.compose.ui.unit.dp
 import com.dor.compose.playground.composables.utils.toDp
 import kotlin.math.roundToInt
@@ -64,8 +65,9 @@ fun ScrollableWithFoldableToolbar(
             if (isToolbarVisible) {
                 topBar(Modifier.offset { IntOffset(x = 0, y = topBarOffsetHeightPx.roundToInt()) })
             }
+            val offset = if (isToolbarVisible) toolbarHeight + topBarOffsetHeightPx.toDp() else 0.dp
             content(
-                Modifier.padding(top = if (isToolbarVisible) toolbarHeight + topBarOffsetHeightPx.toDp() else 0.dp)
+                Modifier.padding(top = offset.coerceAtLeast(0.dp))
             )
         }
     }
