@@ -54,6 +54,13 @@ fun MainScreen(navController: NavController) {
             ) {
                 Text(text = "Drag and Drop list")
             }
+            Button(
+                onClick = {
+                    navController.navigate("foldabletoolbar")
+                }
+            ) {
+                Text(text = "Foldable Toolbar")
+            }
             Spacer(modifier = Modifier.height(16.dp))
         }
     }
