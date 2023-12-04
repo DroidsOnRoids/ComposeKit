@@ -41,5 +41,6 @@ dependencies {
     implementation(project(":composeDestinationsLibrary"))
     implementation(project(":composables:autoResizedText"))
     implementation(project(":composables:collapsing-toolbar"))
+    implementation(project(":composables:foldableToolbar"))
     implementation(project(":composables:draganddroplist"))
 }

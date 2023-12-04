@@ -15,6 +15,7 @@ import com.dor.compose.playground.screens.DragAndDropListScreen
 import com.dor.compose.playground.screens.MainScreen
 import com.dor.compose.playground.screens.PullRefreshScreen
 import com.dor.compose.playground.screens.CollapsingToolbarScreen
+import com.dor.compose.playground.screens.FoldableToolbarScreen
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                     composable("navigationLibrary") { NavigationLibraryEntryScreen() }
                     composable("autoresizedtext") { AutoResizedTextScreen() }
                     composable("collapsingtoolbar") { CollapsingToolbarScreen() }
+                    composable("foldabletoolbar") { FoldableToolbarScreen() }
                     composable("draganddroplist") { DragAndDropListScreen() }
                 }
             }
