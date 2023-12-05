@@ -14,10 +14,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalContentColor
@@ -31,7 +29,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -42,6 +43,7 @@ import androidx.compose.ui.layout.AlignmentLine
 import androidx.compose.ui.layout.LastBaseline
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.layout.layoutId
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.text.TextStyle
@@ -49,6 +51,7 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.Velocity
 import androidx.compose.ui.unit.dp
+import com.dor.compose.playground.composables.utils.toDp
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.roundToInt
@@ -65,29 +68,44 @@ fun ParallaxAppBar(
     navigationIcon: @Composable () -> Unit = {},
     actions: @Composable RowScope.() -> Unit = {},
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
-    colors: TopAppBarColors = TopAppBarColors(
+    colors: CollapsedAppBarColors = CollapsedAppBarColors(
         navigationIconContentColor = Color.Green,
         titleContentColor = Color.Cyan,
         actionIconContentColor = Color.Magenta,
     ),
+    collapsedAppBarHeight: Dp = 64.dp,
+    titleTextStyle: TextStyle = MaterialTheme.typography.headlineSmall,
+    titleVerticalArrangement: Arrangement.Vertical = Arrangement.Center,
+    titleHorizontalArrangement: Arrangement.Horizontal = Arrangement.Start,
     scrollBehavior: TopAppBarScrollBehavior? = null,
 ) {
-    ParallaxAppBar(
-        title = title,
-        titleTextStyle = MaterialTheme.typography.headlineLarge,
-        smallTitleTextStyle = MaterialTheme.typography.headlineSmall,
-        titleBottomPadding = 28.dp,
-        smallTitle = title,
-        expandedBackground = expandedBackground,
-        modifier = modifier,
-        navigationIcon = navigationIcon,
-        actions = actions,
-        colors = colors,
-        windowInsets = windowInsets,
-        maxHeight = 152.dp,
-        pinnedHeight = 64.dp,
-        scrollBehavior = scrollBehavior
-    )
+    var expandedBackgroundHeight by remember { mutableIntStateOf(0) }
+
+    if (expandedBackgroundHeight == 0) {
+        // Measure and save expanded background height
+        Box(modifier = Modifier
+            .invisible()
+            .onSizeChanged { expandedBackgroundHeight = it.height })
+        {
+            expandedBackground()
+        }
+    } else {
+        ParallaxAppBar(
+            title = title,
+            titleTextStyle = titleTextStyle,
+            titleVerticalArrangement = titleVerticalArrangement,
+            titleHorizontalArrangement = titleHorizontalArrangement,
+            expandedBackground = expandedBackground,
+            modifier = modifier,
+            navigationIcon = navigationIcon,
+            actions = actions,
+            colors = colors,
+            windowInsets = windowInsets,
+            expandedBackgroundHeightPx = expandedBackgroundHeight,
+            collapsedAppBarHeightPx = LocalDensity.current.run { collapsedAppBarHeight.toPx() },
+            scrollBehavior = scrollBehavior
+        )
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -96,37 +114,24 @@ private fun ParallaxAppBar(
     modifier: Modifier = Modifier,
     title: @Composable () -> Unit,
     titleTextStyle: TextStyle,
-    titleBottomPadding: Dp,
-    smallTitle: @Composable () -> Unit,
-    smallTitleTextStyle: TextStyle,
+    titleVerticalArrangement: Arrangement.Vertical,
+    titleHorizontalArrangement: Arrangement.Horizontal,
     expandedBackground: @Composable () -> Unit,
     navigationIcon: @Composable () -> Unit,
     actions: @Composable RowScope.() -> Unit,
     windowInsets: WindowInsets,
-    colors: TopAppBarColors,
-    maxHeight: Dp,
-    pinnedHeight: Dp,
+    colors: CollapsedAppBarColors,
+    expandedBackgroundHeightPx: Int,
+    collapsedAppBarHeightPx: Float,
     scrollBehavior: TopAppBarScrollBehavior?,
 ) {
-    require(maxHeight > pinnedHeight) { "A TwoRowsTopAppBar max height should be greater than its pinned height" }
-    val pinnedHeightPx: Float
-    val maxHeightPx: Float
-    val titleBottomPaddingPx: Int
-    LocalDensity.current.run {
-        pinnedHeightPx = pinnedHeight.toPx()
-        maxHeightPx = maxHeight.toPx()
-        titleBottomPaddingPx = titleBottomPadding.roundToPx()
-    }
-
-    // retrieve status bar height
-    val inset = WindowInsets.systemBars.asPaddingValues()
+    require(expandedBackgroundHeightPx > collapsedAppBarHeightPx) { "Expanded background height should be greater than collapsed app bar's height" }
 
     // Sets the app bar's height offset limit to hide just the bottom title area and keep top title
     // visible when collapsed.
-    // TODO Handle status bar height
     SideEffect {
-        if (scrollBehavior?.state?.heightOffsetLimit != pinnedHeightPx - maxHeightPx + 66f) {
-            scrollBehavior?.state?.heightOffsetLimit = pinnedHeightPx - maxHeightPx + 66f // status bar height
+        if (scrollBehavior?.state?.heightOffsetLimit != collapsedAppBarHeightPx - expandedBackgroundHeightPx) {
+            scrollBehavior?.state?.heightOffsetLimit = collapsedAppBarHeightPx - expandedBackgroundHeightPx
         }
     }
 
@@ -150,9 +155,7 @@ private fun ParallaxAppBar(
     val topTitleAlpha = TopTitleAlphaEasing.transform(colorTransitionFraction)
     val expandedBackgroundAlpha = 1f - colorTransitionFraction2
     // Hide the top row title semantics when its alpha value goes below 0.5 threshold.
-    // Hide the bottom row title semantics when the top title semantics are active.
     val hideTopRowSemantics = colorTransitionFraction < 0.5f
-    val hideBottomRowSemantics = !hideTopRowSemantics
 
     // Set up support for resizing the top app bar when vertically dragging the bar itself.
     val appBarDragModifier = if (scrollBehavior != null && !scrollBehavior.isPinned) {
@@ -183,17 +186,17 @@ private fun ParallaxAppBar(
                 .windowInsetsPadding(windowInsets)
                 // clip after padding so we don't show the title over the inset area
                 .clipToBounds(),
-            heightPx = pinnedHeightPx,
+            heightPx = collapsedAppBarHeightPx,
             navigationIconContentColor =
             colors.navigationIconContentColor,
             titleContentColor = colors.titleContentColor,
             actionIconContentColor =
             colors.actionIconContentColor,
-            title = smallTitle,
-            titleTextStyle = smallTitleTextStyle,
+            title = title,
+            titleTextStyle = titleTextStyle,
             titleAlpha = topTitleAlpha,
-            titleVerticalArrangement = Arrangement.Center,
-            titleHorizontalArrangement = Arrangement.Start,
+            titleVerticalArrangement = titleVerticalArrangement,
+            titleHorizontalArrangement = titleHorizontalArrangement,
             titleBottomPadding = 0,
             hideTitleSemantics = hideTopRowSemantics,
             navigationIcon = navigationIcon,
@@ -201,11 +204,10 @@ private fun ParallaxAppBar(
         )
         Box(
             modifier = Modifier
-                .height((maxHeightPx - pinnedHeightPx + (scrollBehavior?.state?.heightOffset ?: 0f)).dp)
+                .height((expandedBackgroundHeightPx + (scrollBehavior?.state?.heightOffset ?: 0f)).toDp())
                 .alpha(expandedBackgroundAlpha)
                 .clipToBounds()
         ) {
-            // TODO Match conetnt height instead of fixed height (eg. Vertical picture)
             expandedBackground()
         }
     }
@@ -391,9 +393,10 @@ private suspend fun settleAppBar(
     return Velocity(0f, remainingVelocity)
 }
 
-// TODO Rename
-class TopAppBarColors(
+class CollapsedAppBarColors(
     val navigationIconContentColor: Color,
     val titleContentColor: Color,
     val actionIconContentColor: Color,
 )
+
+private fun Modifier.invisible() = this.alpha(0f)
