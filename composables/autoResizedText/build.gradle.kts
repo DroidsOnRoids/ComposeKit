@@ -4,6 +4,7 @@ plugins {
     id(deps.plugins.playgroundKotlin.get().pluginId)
     id(deps.plugins.playgroundJava.get().pluginId)
     id(deps.plugins.playgroundCompose.get().pluginId)
+    id(deps.plugins.publishing.get().pluginId)
 }
 
 android {

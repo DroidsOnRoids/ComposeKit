@@ -16,6 +16,7 @@ ksp = "1.8.22-1.0.11"
 mockk = "1.13.5"
 composeDestinations = "1.7.27-beta" # TODO Bump version
 dagger = "2.45"
+vanniktechMavenPublish = "0.25.3"
 
 [libraries]
 gradlePlugins-android = { group = "com.android.tools.build", name = "gradle", version.ref = "androidPlugin" }
@@ -48,6 +49,8 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" }
 daggerCompiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
 
+vanniktech-maven-publish = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "vanniktechMavenPublish" }
+
 [bundles]
 compose-basic = ["androidX-compose-ui", "androidX-compose-material", "androidX-compose-material3", "androidX-compose-foundation", "androidX-compose-preview", "androidX-compose-runtime"]
 
@@ -58,7 +61,9 @@ playgroundAndroid = { id = "com.dor.compose.playground.android" }
 playgroundKotlin = { id = "com.dor.compose.playground.kotlin" }
 playgroundJava = { id = "com.dor.compose.playground.java" }
 playgroundCompose = { id = "com.dor.compose.playground.compose" }
+publishing = { id = "com.dor.compose.playground.publishing" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 parcelize = { id = "kotlin-parcelize", version.ref = "kotlin" }
 kapt = { id = "kotlin-kapt", version.ref = "kotlin" }
+vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPublish" }

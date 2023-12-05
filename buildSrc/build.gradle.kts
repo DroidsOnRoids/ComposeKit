@@ -23,6 +23,10 @@ gradlePlugin {
             id = "com.dor.compose.playground.compose"
             implementationClass = "configuration.compose.ConfigureComposeModulePlugin"
         }
+        register("com.dor.compose.playground.publishing") {
+            id = "com.dor.compose.playground.publishing"
+            implementationClass = "configuration.publishing.PublishComposePlaygroundModulePlugin"
+        }
     }
 }
 
@@ -31,6 +35,7 @@ dependencies {
     implementation(deps.gradlePlugins.android)
     implementation(deps.gradlePlugins.kotlin)
     implementation(deps.gradlePlugins.detekt)
+    implementation(deps.vanniktech.maven.publish)
 
     testImplementation(deps.junit)
     testImplementation(deps.assertJ)
