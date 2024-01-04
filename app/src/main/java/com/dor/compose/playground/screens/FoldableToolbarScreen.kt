@@ -9,7 +9,7 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.dor.compose.playground.composables.button.ScrollableWithFoldableToolbar
+import com.dor.compose.playground.composables.foldabletoolbar.ScrollableWithFoldableToolbar
 
 @Composable
 fun FoldableToolbarScreen() {
