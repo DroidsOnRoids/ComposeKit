@@ -83,10 +83,11 @@ fun ParallaxAppBar(
 
     if (expandedBackgroundHeight == 0) {
         // Measure and save expanded background height
-        Box(modifier = Modifier
-            .invisible()
-            .onSizeChanged { expandedBackgroundHeight = it.height })
-        {
+        Box(
+            modifier = Modifier
+                .invisible()
+                .onSizeChanged { expandedBackgroundHeight = it.height }
+        ) {
             expandedBackground()
         }
     } else {
@@ -125,7 +126,9 @@ private fun ParallaxAppBar(
     collapsedAppBarHeightPx: Float,
     scrollBehavior: TopAppBarScrollBehavior?,
 ) {
-    require(expandedBackgroundHeightPx > collapsedAppBarHeightPx) { "Expanded background height should be greater than collapsed app bar's height" }
+    require(expandedBackgroundHeightPx > collapsedAppBarHeightPx) {
+        "Expanded background height should be greater than collapsed app bar's height"
+    }
 
     // Sets the app bar's height offset limit to hide just the bottom title area and keep top title
     // visible when collapsed.
