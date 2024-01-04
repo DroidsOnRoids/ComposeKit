@@ -36,6 +36,7 @@ internal fun Project.configureDetekt() {
         exclude("**/resources/**")
         exclude("**/build/**")
         config.setFrom(detektConfigFilePath)
+        autoCorrect = true
         reports {
             xml.enabled = true
             html.enabled = true
