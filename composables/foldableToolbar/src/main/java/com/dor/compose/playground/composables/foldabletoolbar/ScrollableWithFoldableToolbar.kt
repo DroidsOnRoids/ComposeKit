@@ -5,9 +5,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -75,6 +76,7 @@ fun ScrollableWithFoldableToolbar(
 
 @Composable
 @Preview
+@OptIn(ExperimentalMaterial3Api::class)
 private fun ProductListWithViewTypeChange(
     modifier: Modifier = Modifier,
 ) {
@@ -82,15 +84,15 @@ private fun ProductListWithViewTypeChange(
         modifier = modifier,
         isToolbarVisible = true,
         toolbarHeight = TOOLBAR_HEIGHT,
-        topBar = { modifier ->
+        topBar = { topBarModifier ->
             TopAppBar(
-                modifier = modifier,
+                modifier = topBarModifier,
                 title = { Text(text = "Test list") },
             )
         }
-    ) { modifier ->
+    ) { topBarModifier ->
         LazyColumn(
-            modifier = modifier.fillMaxSize()
+            modifier = topBarModifier.fillMaxSize()
         ) {
             items(100) { index ->
                 Text(text = "$index: Lorem ipsum", modifier = Modifier.padding(16.dp))
