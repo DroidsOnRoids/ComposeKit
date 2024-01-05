@@ -4,8 +4,9 @@ import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Card
-import androidx.compose.material.Text
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
@@ -19,8 +20,8 @@ fun DragAndDropListScreen() {
         items = List(40) { it },
         onDragEnd = { _ -> /* do something with the reordered list*/ },
         itemContent = { item, isDragging ->
-            val elevation by animateDpAsState(if (isDragging) 4.dp else 1.dp)
-            Card(elevation = elevation) {
+            val elevation by animateDpAsState(if (isDragging) 4.dp else 1.dp, label = "")
+            Card(elevation = CardDefaults.cardElevation(defaultElevation = elevation)) {
                 Text(
                     modifier = Modifier
                         .fillMaxWidth()

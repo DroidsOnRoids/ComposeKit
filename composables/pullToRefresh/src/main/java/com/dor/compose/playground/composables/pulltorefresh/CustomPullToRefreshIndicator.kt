@@ -30,7 +30,6 @@ import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
-import com.dor.compose.playground.customPullRefreshIndicatorTransform
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min

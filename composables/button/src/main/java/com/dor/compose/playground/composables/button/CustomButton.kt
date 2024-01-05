@@ -4,11 +4,12 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Icon
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
@@ -37,11 +38,12 @@ fun CustomButton(
             onClick = onClick,
             modifier = newModifier,
             enabled = enabled,
+            shape = MaterialTheme.shapes.extraSmall,
             border = outlinedButtonBorder(enabled, buttonType.contentColor, disabledContentColor),
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = buttonType.backgroundColor,
+                containerColor = buttonType.backgroundColor,
                 contentColor = buttonType.contentColor,
-                disabledBackgroundColor = buttonType.backgroundColor,
+                disabledContainerColor = buttonType.backgroundColor,
                 disabledContentColor = disabledContentColor
             )
         ) {
@@ -53,10 +55,11 @@ fun CustomButton(
             onClick = onClick,
             modifier = newModifier,
             enabled = enabled,
+            shape = MaterialTheme.shapes.extraSmall,
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = buttonType.backgroundColor,
+                containerColor = buttonType.backgroundColor,
                 contentColor = buttonType.contentColor,
-                disabledBackgroundColor = buttonType.backgroundColor.disabled(),
+                disabledContainerColor = buttonType.backgroundColor.disabled(),
                 disabledContentColor = buttonType.contentColor.disabled()
             )
         ) {
@@ -89,8 +92,8 @@ internal fun outlinedButtonBorder(
     color: Color = Color.Black,
     disabledColor: Color = color.disabled(),
 ) = BorderStroke(
-    ButtonDefaults.OutlinedBorderSize,
-    if (isEnabled) color else disabledColor,
+    width = 1.dp,
+    color = if (isEnabled) color else disabledColor,
 )
 
 @Stable

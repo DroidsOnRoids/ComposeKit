@@ -1,8 +1,10 @@
 package com.dor.compose.playground.composables.utils
 
-import androidx.compose.material.ContentAlpha
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
+// Value used for both high and low contrast colors in the Material Design.
+private const val DISABLED_ALPHA = 0.38f
+
 @Composable
-fun Color.disabled(): Color = copy(alpha = ContentAlpha.disabled)
+fun Color.disabled(): Color = copy(alpha = DISABLED_ALPHA)

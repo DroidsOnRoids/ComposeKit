@@ -7,9 +7,9 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.Text
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -71,7 +71,7 @@ private fun NavButton(text: String, onClick: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 24.dp),
-        colors = ButtonDefaults.buttonColors(backgroundColor = Color.Blue),
+        colors = ButtonDefaults.buttonColors(containerColor = Color.Blue),
         shape = RoundedCornerShape(10.dp),
         onClick = { onClick() }
     ) {

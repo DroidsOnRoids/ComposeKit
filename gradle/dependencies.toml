@@ -4,6 +4,7 @@ detekt = "1.23.4"
 kotlin = "1.9.21"
 androidXAppCompat = "1.6.1"
 material = "1.11.0"
+# TODO on 1.2.0: Replace material PullToRefresh with material3 equivalent, remove compose-material dependency
 material3 = "1.1.2"
 androidXComposeCompiler = "1.5.7"
 androidXComposeBom = "2023.10.01"

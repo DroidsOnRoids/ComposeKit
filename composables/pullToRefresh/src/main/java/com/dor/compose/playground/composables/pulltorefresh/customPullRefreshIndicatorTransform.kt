@@ -1,6 +1,6 @@
 @file:Suppress("Filename")
 
-package com.dor.compose.playground
+package com.dor.compose.playground.composables.pulltorefresh
 
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.material.ExperimentalMaterialApi
