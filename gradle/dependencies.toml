@@ -1,22 +1,21 @@
-# Renovate ?
 [versions]
-androidPlugin = "8.0.2"
-detekt = "1.23.0"
-kotlin = "1.8.22"
+androidPlugin = "8.2.1"
+detekt = "1.23.4"
+kotlin = "1.9.21"
 androidXAppCompat = "1.6.1"
-material = "1.9.0"
-material3 = "1.1.1"
-androidXComposeCompiler = "1.4.8"
-androidXComposeBom = "2023.08.00"
-navigationCompose = "2.6.0"
+material = "1.11.0"
+material3 = "1.1.2"
+androidXComposeCompiler = "1.5.7"
+androidXComposeBom = "2023.10.01"
+navigationCompose = "2.7.6"
 assertJ = "3.24.2"
 junit = "4.13.2"
 kotlinPoet = "1.14.2"
-ksp = "1.8.22-1.0.11"
-mockk = "1.13.5"
-composeDestinations = "1.7.27-beta" # TODO Bump version
-dagger = "2.45"
-vanniktechMavenPublish = "0.25.3"
+ksp = "1.9.21-1.0.16"
+mockk = "1.13.9"
+composeDestinations = "1.9.57"
+dagger = "2.50"
+vanniktechMavenPublish = "0.27.0"
 
 [libraries]
 gradlePlugins-android = { group = "com.android.tools.build", name = "gradle", version.ref = "androidPlugin" }
