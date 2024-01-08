@@ -1,7 +1,6 @@
 package com.dor.compose.playground.composables.theme
 
-import androidx.compose.material.LocalContentAlpha
-import androidx.compose.material.lightColors
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.Immutable
@@ -13,45 +12,48 @@ object CustomColors {
 
     val Gray = Color(0xFFE9E9E9)
     val Red = Color(0xFFd91010)
-    val SoftPrimary = Color(0xFFFAFAFA)
-    val DarkGrey = Color(0xFFC2C2C2)
+    val SoftPrimary = Color(0xFF6A6A6A)
+    val DarkGrey = Color(0xFF3B3B3B)
 }
 
 @Immutable
 @Suppress("LongParameterList")
 class Colors(
     val primary: Color = Color.Black,
-    val primaryVariant: Color = CustomColors.Gray,
-    val secondary: Color = Color.Black,
-    val secondaryVariant: Color = CustomColors.Gray,
-    val background: Color = Color.White,
-    val surface: Color = Color.White,
-    val error: Color = CustomColors.Red,
     val onPrimary: Color = Color.White,
+    val primaryContainer: Color = CustomColors.Gray,
+    val onPrimaryContainer: Color = Color.Black,
+    val secondary: Color = Color.Black,
     val onSecondary: Color = Color.White,
+    val secondaryContainer: Color = CustomColors.Gray,
+    val onSecondaryContainer: Color = Color.Black,
+    val background: Color = Color.White,
     val onBackground: Color = Color.Black,
+    val surface: Color = Color.White,
     val onSurface: Color = Color.Black,
+    val error: Color = CustomColors.Red,
     val onError: Color = Color.White,
-    val onSecondaryVariant: Color = Color.Black,
-    val primaryVariantLight: Color = CustomColors.SoftPrimary,
-    val primaryVariantDark: Color = CustomColors.DarkGrey,
-    val secondaryVariantLight: Color = CustomColors.SoftPrimary,
-    val secondaryVariantDark: Color = CustomColors.DarkGrey,
+    val primaryVariant: Color = CustomColors.DarkGrey,
+    val primaryVariantLow: Color = CustomColors.SoftPrimary,
+    val secondaryVariant: Color = CustomColors.DarkGrey,
+    val secondaryVariantLow: Color = CustomColors.SoftPrimary,
     val dividerColor: Color = CustomColors.DarkGrey.copy(alpha = 0.2f),
 ) {
 
-    val materialColors = lightColors(
+    val materialColors = lightColorScheme(
         primary = primary,
-        primaryVariant = primaryVariant,
-        secondary = secondary,
-        secondaryVariant = secondaryVariant,
-        background = background,
-        surface = surface,
-        error = error,
         onPrimary = onPrimary,
+        primaryContainer = primaryContainer,
+        onPrimaryContainer = onPrimaryContainer,
+        secondary = secondary,
         onSecondary = onSecondary,
+        secondaryContainer = secondaryContainer,
+        onSecondaryContainer = onSecondaryContainer,
+        background = background,
         onBackground = onBackground,
+        surface = surface,
         onSurface = onSurface,
+        error = error,
         onError = onError,
     )
 }
@@ -63,7 +65,6 @@ fun ProvideColors(
 ) {
     CompositionLocalProvider(
         LocalColors provides colors,
-        LocalContentAlpha provides 1f,
         content = content
     )
 }

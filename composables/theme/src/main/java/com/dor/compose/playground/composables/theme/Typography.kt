@@ -7,125 +7,174 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 
 @Immutable
 @Suppress("LongParameterList")
 class Typography private constructor(
-    val h1: TextStyle,
-    val h2: TextStyle,
-    val h3: TextStyle,
-    val h4: TextStyle,
-    val h5: TextStyle,
-    val subtitle1: TextStyle,
-    val subtitle2: TextStyle,
-    val paragraph: TextStyle,
-    val paragraphSecondary: TextStyle,
-    val caption1: TextStyle,
-    val caption2: TextStyle,
+    val displayLarge: TextStyle,
+    val displayMedium: TextStyle,
+    val displaySmall: TextStyle,
+    val headlineLarge: TextStyle,
+    val headlineMedium: TextStyle,
+    val headlineSmall: TextStyle,
+    val titleLarge: TextStyle,
+    val titleMedium: TextStyle,
+    val titleSmall: TextStyle,
+    val bodyLarge: TextStyle,
+    val bodyMedium: TextStyle,
+    val bodySmall: TextStyle,
+    val labelLarge: TextStyle,
+    val labelMedium: TextStyle,
+    val labelSmall: TextStyle,
     val button: TextStyle,
 ) {
 
     @Suppress("LongParameterList")
     constructor(
-        defaultFontFamily: FontFamily = FontFamily.Default,
-        h1: TextStyle = TextStyle(
-            fontWeight = FontWeight.Bold,
-            fontSize = 30.sp,
-            letterSpacing = (-0.02).em,
+        defaultFont: FontFamily = FontFamily.SansSerif,
+        displayLarge: TextStyle = TextStyle(
+            fontWeight = FontWeight.Normal,
+            fontSize = 57.sp,
+            lineHeight = 64.0.sp,
+            letterSpacing = (-0.2).sp,
         ),
-        h2: TextStyle = TextStyle(
-            fontWeight = FontWeight.Bold,
-            fontSize = 27.sp,
-            letterSpacing = (-0.02).em,
+        displayMedium: TextStyle = TextStyle(
+            fontWeight = FontWeight.Normal,
+            fontSize = 45.sp,
+            lineHeight = 52.0.sp,
         ),
-        h3: TextStyle = TextStyle(
-            fontWeight = FontWeight.Bold,
-            fontSize = 20.sp,
+        displaySmall: TextStyle = TextStyle(
+            fontWeight = FontWeight.Normal,
+            fontSize = 36.sp,
+            lineHeight = 44.0.sp,
         ),
-        h4: TextStyle = TextStyle(
-            fontWeight = FontWeight.Medium,
-            fontSize = 18.sp,
+        headlineLarge: TextStyle = TextStyle(
+            fontWeight = FontWeight.Normal,
+            fontSize = 32.sp,
+            lineHeight = 40.0.sp,
         ),
-        h5: TextStyle = TextStyle(
+        headlineMedium: TextStyle = TextStyle(
+            fontWeight = FontWeight.Normal,
+            fontSize = 28.sp,
+            lineHeight = 36.0.sp,
+        ),
+        headlineSmall: TextStyle = TextStyle(
+            fontWeight = FontWeight.Normal,
+            fontSize = 24.sp,
+            lineHeight = 32.0.sp,
+        ),
+        titleLarge: TextStyle = TextStyle(
+            fontWeight = FontWeight.Normal,
+            fontSize = 22.sp,
+            lineHeight = 28.0.sp,
+        ),
+        titleMedium: TextStyle = TextStyle(
             fontWeight = FontWeight.Medium,
             fontSize = 16.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.2.sp,
         ),
-        subtitle1: TextStyle = TextStyle(
-            fontWeight = FontWeight.Medium,
-            fontSize = 12.sp,
-        ),
-        subtitle2: TextStyle = TextStyle(
-            fontWeight = FontWeight.Normal,
-            fontSize = 12.sp,
-        ),
-        paragraph: TextStyle = TextStyle(
+        titleSmall: TextStyle = TextStyle(
             fontWeight = FontWeight.Medium,
             fontSize = 14.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = 0.1.sp,
         ),
-        paragraphSecondary: TextStyle = TextStyle(
+        bodyLarge: TextStyle = TextStyle(
+            fontWeight = FontWeight.Normal,
+            fontSize = 16.sp,
+            lineHeight = 24.0.sp,
+            letterSpacing = 0.5.sp,
+        ),
+        bodyMedium: TextStyle = TextStyle(
             fontWeight = FontWeight.Normal,
             fontSize = 14.sp,
-            letterSpacing = 0.04.em,
+            lineHeight = 20.0.sp,
+            letterSpacing = 0.2.sp,
         ),
-        caption1: TextStyle = TextStyle(
+        bodySmall: TextStyle = TextStyle(
+            fontWeight = FontWeight.Normal,
+            fontSize = 12.sp,
+            lineHeight = 16.0.sp,
+            letterSpacing = 0.4.sp,
+        ),
+        labelLarge: TextStyle = TextStyle(
+            fontWeight = FontWeight.Medium,
+            fontSize = 14.sp,
+            lineHeight = 20.0.sp,
+            letterSpacing = 0.1.sp,
+        ),
+        labelMedium: TextStyle = TextStyle(
+            fontWeight = FontWeight.Medium,
+            fontSize = 12.sp,
+            lineHeight = 16.0.sp,
+            letterSpacing = 0.5.sp,
+        ),
+        labelSmall: TextStyle = TextStyle(
             fontWeight = FontWeight.Medium,
             fontSize = 11.sp,
-            letterSpacing = 0.04.em,
-        ),
-        caption2: TextStyle = TextStyle(
-            fontWeight = FontWeight.Medium,
-            fontSize = 10.sp,
-            letterSpacing = 0.04.em,
+            lineHeight = 16.0.sp,
+            letterSpacing = 0.5.sp,
         ),
         button: TextStyle = TextStyle(
             fontWeight = FontWeight.Medium,
             fontSize = 14.sp,
-            letterSpacing = 0.sp,
-        ),
+        )
     ) : this(
-        h1 = h1.withDefaultFontFamily(defaultFontFamily),
-        h2 = h2.withDefaultFontFamily(defaultFontFamily),
-        h3 = h3.withDefaultFontFamily(defaultFontFamily),
-        h4 = h4.withDefaultFontFamily(defaultFontFamily),
-        h5 = h5.withDefaultFontFamily(defaultFontFamily),
-        subtitle1 = subtitle1.withDefaultFontFamily(defaultFontFamily),
-        subtitle2 = subtitle2.withDefaultFontFamily(defaultFontFamily),
-        paragraph = paragraph.withDefaultFontFamily(defaultFontFamily),
-        paragraphSecondary = paragraphSecondary.withDefaultFontFamily(defaultFontFamily),
-        button = button.withDefaultFontFamily(defaultFontFamily),
-        caption1 = caption1.withDefaultFontFamily(defaultFontFamily),
-        caption2 = caption2.withDefaultFontFamily(defaultFontFamily),
+        displayLarge = displayLarge.withDefaultFont(defaultFont),
+        displayMedium = displayMedium.withDefaultFont(defaultFont),
+        displaySmall = displaySmall.withDefaultFont(defaultFont),
+        headlineLarge = headlineLarge.withDefaultFont(defaultFont),
+        headlineMedium = headlineMedium.withDefaultFont(defaultFont),
+        headlineSmall = headlineSmall.withDefaultFont(defaultFont),
+        titleLarge = titleLarge.withDefaultFont(defaultFont),
+        titleMedium = titleMedium.withDefaultFont(defaultFont),
+        titleSmall = titleSmall.withDefaultFont(defaultFont),
+        bodyLarge = bodyLarge.withDefaultFont(defaultFont),
+        bodyMedium = bodyMedium.withDefaultFont(defaultFont),
+        bodySmall = bodySmall.withDefaultFont(defaultFont),
+        labelLarge = labelLarge.withDefaultFont(defaultFont),
+        labelMedium = labelMedium.withDefaultFont(defaultFont),
+        labelSmall = labelSmall.withDefaultFont(defaultFont),
+        button = button.withDefaultFont(defaultFont),
     )
 
     @Suppress("LongParameterList")
     fun copy(
-        h1: TextStyle = this.h1,
-        h2: TextStyle = this.h2,
-        h3: TextStyle = this.h3,
-        h4: TextStyle = this.h4,
-        h5: TextStyle = this.h5,
-        subtitle1: TextStyle = this.subtitle1,
-        subtitle2: TextStyle = this.subtitle2,
-        paragraph: TextStyle = this.paragraph,
-        paragraphSecondary: TextStyle = this.paragraphSecondary,
+        displayLarge: TextStyle = this.displayLarge,
+        displayMedium: TextStyle = this.displayMedium,
+        displaySmall: TextStyle = this.displaySmall,
+        headlineLarge: TextStyle = this.headlineLarge,
+        headlineMedium: TextStyle = this.headlineMedium,
+        headlineSmall: TextStyle = this.headlineSmall,
+        titleLarge: TextStyle = this.titleLarge,
+        titleMedium: TextStyle = this.titleMedium,
+        titleSmall: TextStyle = this.titleSmall,
+        bodyLarge: TextStyle = this.bodyLarge,
+        bodyMedium: TextStyle = this.bodyMedium,
+        bodySmall: TextStyle = this.bodySmall,
+        labelLarge: TextStyle = this.labelLarge,
+        labelMedium: TextStyle = this.labelMedium,
+        labelSmall: TextStyle = this.labelSmall,
         button: TextStyle = this.button,
-        caption1: TextStyle = this.caption1,
-        caption2: TextStyle = this.caption2,
     ): Typography = Typography(
-        h1 = h1,
-        h2 = h2,
-        h3 = h3,
-        h4 = h4,
-        h5 = h5,
-        subtitle1 = subtitle1,
-        subtitle2 = subtitle2,
-        paragraph = paragraph,
-        paragraphSecondary = paragraphSecondary,
+        displayLarge = displayLarge,
+        displayMedium = displayMedium,
+        displaySmall = displaySmall,
+        headlineLarge = headlineLarge,
+        headlineMedium = headlineMedium,
+        headlineSmall = headlineSmall,
+        titleLarge = titleLarge,
+        titleMedium = titleMedium,
+        titleSmall = titleSmall,
+        bodyLarge = bodyLarge,
+        bodyMedium = bodyMedium,
+        bodySmall = bodySmall,
+        labelLarge = labelLarge,
+        labelMedium = labelMedium,
+        labelSmall = labelSmall,
         button = button,
-        caption1 = caption1,
-        caption2 = caption2,
     )
 
     @Suppress("ComplexMethod")
@@ -135,46 +184,54 @@ class Typography private constructor(
 
         other as Typography
 
-        if (h1 != other.h1) return false
-        if (h2 != other.h2) return false
-        if (h3 != other.h3) return false
-        if (h4 != other.h4) return false
-        if (h5 != other.h5) return false
-        if (subtitle1 != other.subtitle1) return false
-        if (subtitle2 != other.subtitle2) return false
-        if (paragraph != other.paragraph) return false
-        if (paragraphSecondary != other.paragraphSecondary) return false
-        if (caption1 != other.caption1) return false
-        if (caption2 != other.caption2) return false
-        if (button != other.button) return false
-
-        return true
+        return displayLarge == other.displayLarge &&
+            displayMedium == other.displayMedium &&
+            displaySmall == other.displaySmall &&
+            headlineLarge == other.headlineLarge &&
+            headlineMedium == other.headlineMedium &&
+            headlineSmall == other.headlineSmall &&
+            titleLarge == other.titleLarge &&
+            titleMedium == other.titleMedium &&
+            titleSmall == other.titleSmall &&
+            bodyLarge == other.bodyLarge &&
+            bodyMedium == other.bodyMedium &&
+            bodySmall == other.bodySmall &&
+            labelLarge == other.labelLarge &&
+            labelMedium == other.labelMedium &&
+            labelSmall == other.labelSmall &&
+            button == other.button
     }
 
     @Suppress("ComplexMethod")
     override fun hashCode(): Int {
-        var result = h1.hashCode()
-        result = 31 * result + h2.hashCode()
-        result = 31 * result + h3.hashCode()
-        result = 31 * result + h4.hashCode()
-        result = 31 * result + h5.hashCode()
-        result = 31 * result + subtitle1.hashCode()
-        result = 31 * result + subtitle2.hashCode()
-        result = 31 * result + paragraph.hashCode()
-        result = 31 * result + paragraphSecondary.hashCode()
-        result = 31 * result + caption1.hashCode()
-        result = 31 * result + caption2.hashCode()
+        var result = displayLarge.hashCode()
+        result = 31 * result + displayMedium.hashCode()
+        result = 31 * result + displaySmall.hashCode()
+        result = 31 * result + headlineLarge.hashCode()
+        result = 31 * result + headlineMedium.hashCode()
+        result = 31 * result + headlineSmall.hashCode()
+        result = 31 * result + titleLarge.hashCode()
+        result = 31 * result + titleMedium.hashCode()
+        result = 31 * result + titleSmall.hashCode()
+        result = 31 * result + bodyLarge.hashCode()
+        result = 31 * result + bodyMedium.hashCode()
+        result = 31 * result + bodySmall.hashCode()
+        result = 31 * result + labelLarge.hashCode()
+        result = 31 * result + labelMedium.hashCode()
+        result = 31 * result + labelSmall.hashCode()
         result = 31 * result + button.hashCode()
         return result
     }
 
     override fun toString() =
-        "Typography(h1=$h1, h2=$h2, h3=$h3, h4=$h4, h5=$h5, subtitle1=$subtitle1, " +
-            "subtitle2=$subtitle2, paragraph=$paragraph, paragraphSecondary=$paragraphSecondary, " +
-            "caption1=$caption1, caption2=$caption2, button=$button)"
+        "Typography(displayLarge=$displayLarge, displayMedium=$displayMedium, displaySmall=$displaySmall, " +
+            "headlineLarge=$headlineLarge, headlineMedium=$headlineMedium, headlineSmall=$headlineSmall, " +
+            "titleLarge=$titleLarge, titleMedium=$titleMedium, titleSmall=$titleSmall, " +
+            "bodyLarge=$bodyLarge, bodyMedium=$bodyMedium, bodySmall=$bodySmall, " +
+            "labelLarge=$labelLarge, labelMedium=$labelMedium, labelSmall=$labelSmall, button=$button)"
 }
 
-private fun TextStyle.withDefaultFontFamily(default: FontFamily): TextStyle {
+private fun TextStyle.withDefaultFont(default: FontFamily): TextStyle {
     return if (fontFamily != null) this else copy(fontFamily = default)
 }
 

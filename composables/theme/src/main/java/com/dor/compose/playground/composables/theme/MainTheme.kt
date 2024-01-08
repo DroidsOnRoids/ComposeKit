@@ -1,7 +1,7 @@
 package com.dor.compose.playground.composables.theme
 
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Shapes
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.text.TextStyle
@@ -15,7 +15,7 @@ fun MainTheme(
         ProvideColors {
             ProvideTypography {
                 MaterialTheme(
-                    colors = LocalColors.current.materialColors,
+                    colorScheme = LocalColors.current.materialColors,
                     typography = debugTypography(),
                     shapes = LocalShapes.current,
                     content = content,
@@ -44,23 +44,25 @@ object MainTheme {
 }
 
 /**
- * A Material [Typography] implementation which sets all colors to [debugTypography] to discourage usage of
- * [MaterialTheme.typography] in preference to [MainTheme.typography].
+ * [androidx.compose.material3.Typography] implementation which sets all colors to [debugTypography]
+ * to discourage usage of [MaterialTheme.typography] in preference to [MainTheme.typography].
  */
 fun debugTypography(
     debugTextStyle: TextStyle = TextStyle(fontSize = 34.sp),
-) = androidx.compose.material.Typography(
-    h1 = debugTextStyle,
-    h2 = debugTextStyle,
-    h3 = debugTextStyle,
-    h4 = debugTextStyle,
-    h5 = debugTextStyle,
-    h6 = debugTextStyle,
-    subtitle1 = debugTextStyle,
-    subtitle2 = debugTextStyle,
-    body1 = debugTextStyle,
-    body2 = debugTextStyle,
-    button = debugTextStyle,
-    caption = debugTextStyle,
-    overline = debugTextStyle,
+) = androidx.compose.material3.Typography(
+    displayLarge = debugTextStyle,
+    displayMedium = debugTextStyle,
+    displaySmall = debugTextStyle,
+    headlineLarge = debugTextStyle,
+    headlineMedium = debugTextStyle,
+    headlineSmall = debugTextStyle,
+    titleLarge = debugTextStyle,
+    titleMedium = debugTextStyle,
+    titleSmall = debugTextStyle,
+    bodyLarge = debugTextStyle,
+    bodyMedium = debugTextStyle,
+    bodySmall = debugTextStyle,
+    labelLarge = debugTextStyle,
+    labelMedium = debugTextStyle,
+    labelSmall = debugTextStyle,
 )
