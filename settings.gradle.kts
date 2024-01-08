@@ -25,7 +25,7 @@ dependencyResolutionManagement {
 include(":app")
 
 plugins {
-    id("com.android.settings") version "8.0.2"
+    id("com.android.settings") version "8.2.1"
 }
 
 @Suppress("UnstableApiUsage")
