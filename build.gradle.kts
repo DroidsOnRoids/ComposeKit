@@ -2,7 +2,7 @@ import configuration.detekt.DetektConfigurationPlugin
 import modulegenerator.ModuleGenerationPlugin
 
 plugins {
-    id(deps.plugins.detekt.get().pluginId)
+    id(libs.plugins.detekt.get().pluginId)
 }
 apply<DetektConfigurationPlugin>()
 apply<ModuleGenerationPlugin>()
@@ -15,9 +15,9 @@ buildscript {
     }
 
     dependencies {
-        classpath(deps.gradlePlugins.android)
-        classpath(deps.gradlePlugins.kotlin)
-        classpath(deps.gradlePlugins.detekt)
+        classpath(libs.gradlePlugins.android)
+        classpath(libs.gradlePlugins.kotlin)
+        classpath(libs.gradlePlugins.detekt)
     }
 }
 
@@ -26,6 +26,6 @@ tasks.register("clean", Delete::class.java) {
 }
 
 dependencies {
-    "detektPlugins"(deps.gradlePlugins.detekt)
-    "detektPlugins"(deps.gradlePlugins.detektFormatting)
+    "detektPlugins"(libs.gradlePlugins.detekt)
+    "detektPlugins"(libs.gradlePlugins.detektFormatting)
 }

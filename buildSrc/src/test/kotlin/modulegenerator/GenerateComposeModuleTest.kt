@@ -73,7 +73,7 @@ internal class GenerateComposeModuleTest {
 
             override val nutshell = "testPath.deeper.testModule"
             override val buildGradleContent =
-                "plugins {\n    id(deps.plugins.library.get().pluginId)\n    id(deps.plugins.playgroundAndroid.get().pluginId)\n    id(deps.plugins.playgroundKotlin.get().pluginId)\n    id(deps.plugins.playgroundJava.get().pluginId)\n}\n\nandroid {\n    namespace = \"com.dor.compose.playground.testpath.deeper.testmodule\"\n}\n\ndependencies {}"
+                "plugins {\n    id(libs.plugins.library.get().pluginId)\n    id(libs.plugins.playgroundAndroid.get().pluginId)\n    id(libs.plugins.playgroundKotlin.get().pluginId)\n    id(libs.plugins.playgroundJava.get().pluginId)\n}\n\nandroid {\n    namespace = \"com.dor.compose.playground.testpath.deeper.testmodule\"\n}\n\ndependencies {}"
             override val settingsGradleContent = "\n/* OK */ include(\":testPath:deeper:testModule\")"
             override val androidManifestContent = "<manifest package=\"com.dor.compose.playground.testpath.deeper.testmodule\"/>"
 
@@ -112,7 +112,7 @@ internal class GenerateComposeModuleTest {
 
             override val nutshell = "testModule"
             override val buildGradleContent =
-                "plugins {\n    id(deps.plugins.library.get().pluginId)\n    id(deps.plugins.playgroundAndroid.get().pluginId)\n    id(deps.plugins.playgroundKotlin.get().pluginId)\n    id(deps.plugins.playgroundJava.get().pluginId)\n}\n\nandroid {\n    namespace = \"com.dor.compose.playground.testmodule\"\n}\n\ndependencies {}"
+                "plugins {\n    id(libs.plugins.library.get().pluginId)\n    id(libs.plugins.playgroundAndroid.get().pluginId)\n    id(libs.plugins.playgroundKotlin.get().pluginId)\n    id(libs.plugins.playgroundJava.get().pluginId)\n}\n\nandroid {\n    namespace = \"com.dor.compose.playground.testmodule\"\n}\n\ndependencies {}"
             override val settingsGradleContent = "\n/* OK */ include(\":testModule\")"
             override val androidManifestContent = "<manifest package=\"com.dor.compose.playground.testmodule\"/>"
 

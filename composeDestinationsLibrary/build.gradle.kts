@@ -1,12 +1,12 @@
 plugins {
-    alias(deps.plugins.ksp)
-    id(deps.plugins.library.get().pluginId)
-    id(deps.plugins.playgroundAndroid.get().pluginId)
-    id(deps.plugins.playgroundKotlin.get().pluginId)
-    id(deps.plugins.playgroundJava.get().pluginId)
-    id(deps.plugins.playgroundCompose.get().pluginId)
-    id(deps.plugins.parcelize.get().pluginId)
-    id(deps.plugins.kapt.get().pluginId)
+    alias(libs.plugins.ksp)
+    id(libs.plugins.library.get().pluginId)
+    id(libs.plugins.playgroundAndroid.get().pluginId)
+    id(libs.plugins.playgroundKotlin.get().pluginId)
+    id(libs.plugins.playgroundJava.get().pluginId)
+    id(libs.plugins.playgroundCompose.get().pluginId)
+    id(libs.plugins.parcelize.get().pluginId)
+    id(libs.plugins.kapt.get().pluginId)
 }
 
 android {
@@ -22,13 +22,13 @@ android {
 }
 
 dependencies {
-    implementation(deps.androidX.compose.navigation)
+    implementation(libs.androidX.compose.navigation)
 
-    implementation(deps.composeDestinations.core)
-    ksp(deps.composeDestinations.ksp)
+    implementation(libs.composeDestinations.core)
+    ksp(libs.composeDestinations.ksp)
 
-    implementation(deps.dagger)
-    kapt(deps.daggerCompiler)
+    implementation(libs.dagger)
+    kapt(libs.daggerCompiler)
 
     implementation(project(":composables:utils"))
 }

@@ -7,8 +7,8 @@ dependencyResolutionManagement {
     }
 
     versionCatalogs {
-        create("deps") {
-            from(files("../gradle/dependencies.toml"))
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
         }
     }
 }

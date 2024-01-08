@@ -28,7 +28,7 @@ internal class GenerateModuleTest {
 
     private val buildGradleFile = "build.gradle.kts"
     private val buildGradleContent =
-        "plugins {\n    id(deps.plugins.library.get().pluginId)\n    id(deps.plugins.playgroundAndroid.get().pluginId)\n    id(deps.plugins.playgroundKotlin.get().pluginId)\n    id(deps.plugins.playgroundJava.get().pluginId)\n}\n\nandroid {\n    namespace = \"$packageName\"\n}\n\ndependencies {}"
+        "plugins {\n    id(libs.plugins.library.get().pluginId)\n    id(libs.plugins.playgroundAndroid.get().pluginId)\n    id(libs.plugins.playgroundKotlin.get().pluginId)\n    id(libs.plugins.playgroundJava.get().pluginId)\n}\n\nandroid {\n    namespace = \"$packageName\"\n}\n\ndependencies {}"
     private val settingsGradleFile = "settings.gradle.kts"
     private val settingsGradleContent = "\n/* OK */ include(\":test:module:path2d:testModule\")"
 
