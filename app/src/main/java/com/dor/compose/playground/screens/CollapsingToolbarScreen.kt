@@ -18,6 +18,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.dor.compose.playground.R
+import com.dor.compose.playground.composables.theme.MainTheme
 import com.example.collapsingtoolbar.ParallaxAppBar
 
 @Composable
@@ -50,7 +51,11 @@ fun CollapsingToolbarScreen() {
                 .nestedScroll(scrollBehavior.nestedScrollConnection)
         ) {
             items(100) { index ->
-                Text(text = "$index: Lorem ipsum", modifier = Modifier.padding(16.dp))
+                Text(
+                    modifier = Modifier.padding(16.dp),
+                    text = "$index: Lorem ipsum",
+                    style = MainTheme.typography.bodyLarge,
+                )
             }
         }
     }
