@@ -14,12 +14,6 @@ dependencyResolutionManagement {
         google()
         gradlePluginPortal()
     }
-
-    versionCatalogs {
-        create("deps") {
-            from(files("$rootDir/gradle/dependencies.toml"))
-        }
-    }
 }
 
 include(":app")

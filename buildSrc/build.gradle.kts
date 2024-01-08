@@ -31,15 +31,15 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation(deps.kotlinPoet)
-    implementation(deps.gradlePlugins.android)
-    implementation(deps.gradlePlugins.kotlin)
-    implementation(deps.gradlePlugins.detekt)
-    implementation(deps.vanniktech.maven.publish)
+    implementation(libs.kotlinPoet)
+    implementation(libs.gradlePlugins.android)
+    implementation(libs.gradlePlugins.kotlin)
+    implementation(libs.gradlePlugins.detekt)
+    implementation(libs.vanniktech.maven.publish)
 
-    testImplementation(deps.junit)
-    testImplementation(deps.assertJ)
-    testImplementation(deps.mockk)
+    testImplementation(libs.junit)
+    testImplementation(libs.assertJ)
+    testImplementation(libs.mockk)
 
     // Fix for failing unit tests
     // https://github.com/gradle/gradle/issues/16774

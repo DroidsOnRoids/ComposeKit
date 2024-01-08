@@ -1,9 +1,9 @@
 plugins {
-    id(deps.plugins.application.get().pluginId)
-    id(deps.plugins.playgroundAndroid.get().pluginId)
-    id(deps.plugins.playgroundKotlin.get().pluginId)
-    id(deps.plugins.playgroundJava.get().pluginId)
-    id(deps.plugins.playgroundCompose.get().pluginId)
+    id(libs.plugins.application.get().pluginId)
+    id(libs.plugins.playgroundAndroid.get().pluginId)
+    id(libs.plugins.playgroundKotlin.get().pluginId)
+    id(libs.plugins.playgroundJava.get().pluginId)
+    id(libs.plugins.playgroundCompose.get().pluginId)
 }
 
 android {
@@ -30,10 +30,10 @@ android {
 }
 
 dependencies {
-    implementation(deps.androidX.appCompat)
-    implementation(deps.androidX.material)
+    implementation(libs.androidX.appCompat)
+    implementation(libs.androidX.material)
 
-    implementation(deps.androidX.compose.navigation)
+    implementation(libs.androidX.compose.navigation)
 
     implementation(project(":composables:theme"))
     implementation(project(":composables:button"))
