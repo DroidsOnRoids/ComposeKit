@@ -3,8 +3,6 @@ package com.dor.compose.playground.composables.draganddroplist
 import androidx.compose.foundation.lazy.LazyListItemInfo
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.geometry.Offset
@@ -19,8 +17,8 @@ internal class DragDropState internal constructor(
     private val onDragEnd: () -> Unit,
 ) {
 
-    private var draggingItemDraggedDelta by mutableFloatStateOf(0f)
-    private var draggingItemInitialOffset by mutableIntStateOf(0)
+    private var draggingItemDraggedDelta by mutableStateOf(0f)
+    private var draggingItemInitialOffset by mutableStateOf(0)
 
     private val draggingItemLayoutInfo: LazyListItemInfo?
         get() = state.layoutInfo.visibleItemsInfo.firstOrNull { it.index == draggingItemIndex }
