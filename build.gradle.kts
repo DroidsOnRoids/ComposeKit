@@ -16,6 +16,13 @@ buildscript {
         mavenCentral()
         gradlePluginPortal()
     }
+
+    dependencies {
+        classpath(libs.gradlePlugins.android)
+        classpath(libs.gradlePlugins.kotlin)
+        classpath(libs.gradlePlugins.detekt)
+        classpath(libs.vanniktech.maven.publish)
+    }
 }
 
 tasks.register("clean", Delete::class.java) {
