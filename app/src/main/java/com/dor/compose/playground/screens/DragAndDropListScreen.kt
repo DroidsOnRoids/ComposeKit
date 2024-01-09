@@ -20,7 +20,10 @@ fun DragAndDropListScreen() {
         items = List(40) { it },
         onDragEnd = { _ -> /* do something with the reordered list*/ },
         itemContent = { item, isDragging ->
-            val elevation by animateDpAsState(if (isDragging) 4.dp else 1.dp, label = "")
+            val elevation by animateDpAsState(
+                targetValue = if (isDragging) 4.dp else 1.dp,
+                label = "Card elevation animation",
+            )
             Card(elevation = CardDefaults.cardElevation(defaultElevation = elevation)) {
                 Text(
                     modifier = Modifier
