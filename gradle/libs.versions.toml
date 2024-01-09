@@ -57,13 +57,18 @@ compose-basic = ["androidX-compose-ui", "androidX-compose-material", "androidX-c
 [plugins]
 application = { id = "com.android.application", version.ref = "androidPlugin" }
 library = { id = "com.android.library", version.ref = "androidPlugin" }
-playgroundAndroid = { id = "com.dor.compose.playground.android" }
-playgroundKotlin = { id = "com.dor.compose.playground.kotlin" }
-playgroundJava = { id = "com.dor.compose.playground.java" }
-playgroundCompose = { id = "com.dor.compose.playground.compose" }
 publishing = { id = "com.dor.compose.playground.publishing" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 parcelize = { id = "kotlin-parcelize", version.ref = "kotlin" }
 kapt = { id = "kotlin-kapt", version.ref = "kotlin" }
 vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPublish" }
+
+# Convention plugins
+composekit-android-app = { id = "composekit.android.app", version = "unspecified" }
+composekit-android-app-compose = { id = "composekit.android.app.compose", version = "unspecified" }
+composekit-android-library = { id = "composekit.android.library", version = "unspecified" }
+composekit-android-library-compose = { id = "composekit.android.library.compose", version = "unspecified" }
+composekit-detekt = { id = "composekit.detekt", version = "unspecified" }
+composekit-module-generator = { id = "composekit.module.generator", version = "unspecified" }
+composekit-publishing = { id = "composekit.publishing", version = "unspecified" }

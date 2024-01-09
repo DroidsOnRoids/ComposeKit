@@ -1,6 +1,7 @@
 import com.android.build.api.dsl.SettingsExtension
 
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         mavenCentral()
         google()

@@ -608,7 +608,7 @@ potential-bugs:
     active: true
   MissingPackageDeclaration:
     active: true
-    excludes: [ '**/*.kts' ]
+    excludes: [ '**/*.kts', '**/*ConventionPlugin.kt' ]
   NullableToStringCall:
     active: false
   PropertyUsedBeforeDeclaration:

@@ -1,10 +1,10 @@
 plugins {
+    with(libs.plugins) {
+        alias(composekit.android.library)
+        alias(composekit.android.library.compose)
+        alias(composekit.publishing)
+    }
     alias(libs.plugins.ksp)
-    id(libs.plugins.library.get().pluginId)
-    id(libs.plugins.playgroundAndroid.get().pluginId)
-    id(libs.plugins.playgroundKotlin.get().pluginId)
-    id(libs.plugins.playgroundJava.get().pluginId)
-    id(libs.plugins.playgroundCompose.get().pluginId)
     id(libs.plugins.parcelize.get().pluginId)
     id(libs.plugins.kapt.get().pluginId)
 }
