@@ -57,7 +57,6 @@ compose-basic = ["androidX-compose-ui", "androidX-compose-material", "androidX-c
 [plugins]
 application = { id = "com.android.application", version.ref = "androidPlugin" }
 library = { id = "com.android.library", version.ref = "androidPlugin" }
-publishing = { id = "com.dor.compose.playground.publishing" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp"}
 parcelize = { id = "kotlin-parcelize", version.ref = "kotlin" }
