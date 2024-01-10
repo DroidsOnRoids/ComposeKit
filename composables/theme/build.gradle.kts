@@ -6,5 +6,5 @@ plugins {
 }
 
 android {
-    namespace = "com.dor.compose.playground.composables.theme"
+    namespace = "pl.droidsonroids.composekit.composables.theme"
 }

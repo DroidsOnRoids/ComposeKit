@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.collapsingtoolbar"
+    namespace = "pl.droidsonroids.composekit.composables.collapsingtoolbar"
 }
 
 dependencies {

@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.dor.compose.playground.composables.foldabletoolbar"
+    namespace = "pl.droidsonroids.composekit.composables.foldabletoolbar"
 }
 
 dependencies {
