@@ -3,7 +3,6 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import pl.droidsonroids.composekit.configuration.applyAndroidCommons
-import pl.droidsonroids.composekit.configuration.configureJava
 import pl.droidsonroids.composekit.configuration.configureKotlin
 
 class AndroidLibraryConventionPlugin : Plugin<Project> {
@@ -13,7 +12,6 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             pluginManager.apply("com.android.library")
             pluginManager.apply("org.jetbrains.kotlin.android")
 
-            configureJava()
             configureKotlin()
             configure<LibraryExtension> {
                 applyAndroidCommons(extension = this)

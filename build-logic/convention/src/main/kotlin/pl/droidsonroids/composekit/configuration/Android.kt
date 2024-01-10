@@ -2,7 +2,6 @@ package pl.droidsonroids.composekit.configuration
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Project
-import pl.droidsonroids.composekit.config.BuildConfig
 import pl.droidsonroids.composekit.utils.ContinuousIntegration
 
 internal fun Project.applyAndroidCommons(
@@ -10,11 +9,6 @@ internal fun Project.applyAndroidCommons(
 ) = extension.apply {
     defaultConfig {
         vectorDrawables.useSupportLibrary = true
-    }
-
-    compileOptions {
-        sourceCompatibility = BuildConfig.JAVA_VERSION
-        targetCompatibility = BuildConfig.JAVA_VERSION
     }
 
     lint {
