@@ -17,8 +17,6 @@ dependencyResolutionManagement {
 
 include(":app")
 
-include(":composeDestinationsLibrary")
-include(":composables:button")
 include(":composables:utils")
 include(":composables:theme")
 include(":composables:pullToRefresh")

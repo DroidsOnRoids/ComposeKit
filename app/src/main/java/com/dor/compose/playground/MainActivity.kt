@@ -7,9 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.dor.compose.playground.composables.theme.MainTheme
-import com.dor.compose.playground.composedestinationslibrary.screens.NavigationLibraryEntryScreen
 import com.dor.compose.playground.screens.AutoResizedTextScreen
-import com.dor.compose.playground.screens.CustomButtonsScreen
 import com.dor.compose.playground.screens.CustomPullRefreshScreen
 import com.dor.compose.playground.screens.DragAndDropListScreen
 import com.dor.compose.playground.screens.MainScreen
@@ -27,10 +25,8 @@ class MainActivity : AppCompatActivity() {
                 val navController = rememberNavController()
                 NavHost(navController, startDestination = "main") {
                     composable("main") { MainScreen(navController) }
-                    composable("customButton") { CustomButtonsScreen() }
                     composable("pulltorefresh") { PullRefreshScreen() }
                     composable("custompulltorefresh") { CustomPullRefreshScreen() }
-                    composable("navigationLibrary") { NavigationLibraryEntryScreen() }
                     composable("autoresizedtext") { AutoResizedTextScreen() }
                     composable("collapsingtoolbar") { CollapsingToolbarScreen() }
                     composable("foldabletoolbar") { FoldableToolbarScreen() }
