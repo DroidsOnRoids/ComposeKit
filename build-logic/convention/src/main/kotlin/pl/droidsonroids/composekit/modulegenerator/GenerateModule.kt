@@ -16,6 +16,7 @@ internal class GenerateModule(private val separatorProvider: SeparatorProvider) 
         moduleName: String,
         packageName: String,
         path: String,
+        type: ModuleType = ModuleType.AndroidLibrary,
     ) {
         check(moduleNameRegex.matches(moduleName)) {
             "Module name can only contain letters and digits. Was $moduleName"
@@ -28,15 +29,21 @@ internal class GenerateModule(private val separatorProvider: SeparatorProvider) 
         Logger.i(
             "Generating module with: moduleName=$moduleName, packageName=$packageName, path=$path"
         )
-        generateProjectDirectories(rootDir, moduleName, packageName, path)
+        generateProjectDirectories(rootDir, moduleName, packageName, path, type)
     }
 
-    private fun generateProjectDirectories(rootDir: File, moduleName: String, packageName: String, path: String) {
+    private fun generateProjectDirectories(
+        rootDir: File,
+        moduleName: String,
+        packageName: String,
+        path: String,
+        type: ModuleType,
+    ) {
         val moduleDir = make(rootDir, "$path${separatorProvider.separator}$moduleName")
 
         generateSrcMain(moduleDir, packageName)
         generateSrcTest(moduleDir, packageName)
-        BuildGradle.generate(moduleDir, packageName)
+        BuildGradle.generate(moduleDir, packageName, type)
         settingsGradle.addModule(rootDir, path, moduleName)
     }
 
