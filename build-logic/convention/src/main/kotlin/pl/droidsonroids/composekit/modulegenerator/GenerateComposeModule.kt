@@ -15,7 +15,7 @@ internal class GenerateComposeModule(private val separatorProvider: SeparatorPro
         check(nutshellRegex.matches(nutshell)) { "Nutshell can contain only letters, digits and dots. Was $nutshell" }
         val path = nutshell.getPath()
         val name = nutshell.getModuleName()
-        val packageName = PlaygroundPackageBase + nutshell.lowercase(Locale.ENGLISH)
+        val packageName = PackageBase + nutshell.lowercase(Locale.ENGLISH)
         generateModule(rootDir, name, packageName, path, ModuleType.ComposeLibrary)
     }
 
@@ -23,9 +23,9 @@ internal class GenerateComposeModule(private val separatorProvider: SeparatorPro
 
     private fun String.getPath(): String = substringBeforeLast('.', "").replace(".", separatorProvider.separator)
 
-    private companion object {
+    companion object {
 
         val nutshellRegex = "[A-Za-z0-9.]*".toRegex()
-        const val PlaygroundPackageBase = "com.dor.compose.playground."
+        const val PackageBase = "pl.droidsonroids.composekit."
     }
 }

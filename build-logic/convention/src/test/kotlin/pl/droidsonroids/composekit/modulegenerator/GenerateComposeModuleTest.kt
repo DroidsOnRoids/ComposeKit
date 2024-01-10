@@ -73,9 +73,9 @@ internal class GenerateComposeModuleTest {
 
             override val nutshell = "testPath.deeper.testModule"
             override val buildGradleContent =
-                "plugins {\n    with(libs.plugins) {\n        alias(composekit.android.library)\n        alias(composekit.android.library.compose)\n    }\n}\n\nandroid {\n    namespace = \"com.dor.compose.playground.testpath.deeper.testmodule\"\n}\n\ndependencies {}"
+                "plugins {\n    with(libs.plugins) {\n        alias(composekit.android.library)\n        alias(composekit.android.library.compose)\n    }\n}\n\nandroid {\n    namespace = \"pl.droidsonroids.composekit.testpath.deeper.testmodule\"\n}\n\ndependencies {}"
             override val settingsGradleContent = "\n/* OK */ include(\":testPath:deeper:testModule\")"
-            override val androidManifestContent = "<manifest package=\"com.dor.compose.playground.testpath.deeper.testmodule\"/>"
+            override val androidManifestContent = "<manifest package=\"pl.droidsonroids.composekit.testpath.deeper.testmodule\"/>"
 
             override val expectedDirTree = listOf(
                 "/$SETTINGS_GRADLE_FILE_NAME",
@@ -88,23 +88,21 @@ internal class GenerateComposeModuleTest {
                 "/testPath/deeper/testModule/src/main/res",
                 "/testPath/deeper/testModule/src/main/res/layout",
                 "/testPath/deeper/testModule/src/main/res/values",
-                "/testPath/deeper/testModule/src/main/java",
-                "/testPath/deeper/testModule/src/main/java/com",
-                "/testPath/deeper/testModule/src/main/java/com/dor",
-                "/testPath/deeper/testModule/src/main/java/com/dor/compose",
-                "/testPath/deeper/testModule/src/main/java/com/dor/compose/playground",
-                "/testPath/deeper/testModule/src/main/java/com/dor/compose/playground/testpath",
-                "/testPath/deeper/testModule/src/main/java/com/dor/compose/playground/testpath/deeper",
-                "/testPath/deeper/testModule/src/main/java/com/dor/compose/playground/testpath/deeper/testmodule",
+                "/testPath/deeper/testModule/src/main/kotlin",
+                "/testPath/deeper/testModule/src/main/kotlin/pl",
+                "/testPath/deeper/testModule/src/main/kotlin/pl/droidsonroids",
+                "/testPath/deeper/testModule/src/main/kotlin/pl/droidsonroids/composekit",
+                "/testPath/deeper/testModule/src/main/kotlin/pl/droidsonroids/composekit/testpath",
+                "/testPath/deeper/testModule/src/main/kotlin/pl/droidsonroids/composekit/testpath/deeper",
+                "/testPath/deeper/testModule/src/main/kotlin/pl/droidsonroids/composekit/testpath/deeper/testmodule",
                 "/testPath/deeper/testModule/src/test",
-                "/testPath/deeper/testModule/src/test/java",
-                "/testPath/deeper/testModule/src/test/java/com",
-                "/testPath/deeper/testModule/src/test/java/com/dor",
-                "/testPath/deeper/testModule/src/test/java/com/dor/compose",
-                "/testPath/deeper/testModule/src/test/java/com/dor/compose/playground",
-                "/testPath/deeper/testModule/src/test/java/com/dor/compose/playground/testpath",
-                "/testPath/deeper/testModule/src/test/java/com/dor/compose/playground/testpath/deeper",
-                "/testPath/deeper/testModule/src/test/java/com/dor/compose/playground/testpath/deeper/testmodule"
+                "/testPath/deeper/testModule/src/test/kotlin",
+                "/testPath/deeper/testModule/src/test/kotlin/pl",
+                "/testPath/deeper/testModule/src/test/kotlin/pl/droidsonroids",
+                "/testPath/deeper/testModule/src/test/kotlin/pl/droidsonroids/composekit",
+                "/testPath/deeper/testModule/src/test/kotlin/pl/droidsonroids/composekit/testpath",
+                "/testPath/deeper/testModule/src/test/kotlin/pl/droidsonroids/composekit/testpath/deeper",
+                "/testPath/deeper/testModule/src/test/kotlin/pl/droidsonroids/composekit/testpath/deeper/testmodule"
             )
         }
 
@@ -112,9 +110,9 @@ internal class GenerateComposeModuleTest {
 
             override val nutshell = "testModule"
             override val buildGradleContent =
-                "plugins {\n    with(libs.plugins) {\n        alias(composekit.android.library)\n        alias(composekit.android.library.compose)\n    }\n}\n\nandroid {\n    namespace = \"com.dor.compose.playground.testmodule\"\n}\n\ndependencies {}"
+                "plugins {\n    with(libs.plugins) {\n        alias(composekit.android.library)\n        alias(composekit.android.library.compose)\n    }\n}\n\nandroid {\n    namespace = \"pl.droidsonroids.composekit.testmodule\"\n}\n\ndependencies {}"
             override val settingsGradleContent = "\n/* OK */ include(\":testModule\")"
-            override val androidManifestContent = "<manifest package=\"com.dor.compose.playground.testmodule\"/>"
+            override val androidManifestContent = "<manifest package=\"pl.droidsonroids.composekit.testmodule\"/>"
 
             override val expectedDirTree = listOf(
                 "/$SETTINGS_GRADLE_FILE_NAME",
@@ -125,19 +123,17 @@ internal class GenerateComposeModuleTest {
                 "/testModule/src/main/res",
                 "/testModule/src/main/res/layout",
                 "/testModule/src/main/res/values",
-                "/testModule/src/main/java",
-                "/testModule/src/main/java/com",
-                "/testModule/src/main/java/com/dor",
-                "/testModule/src/main/java/com/dor/compose",
-                "/testModule/src/main/java/com/dor/compose/playground",
-                "/testModule/src/main/java/com/dor/compose/playground/testmodule",
+                "/testModule/src/main/kotlin",
+                "/testModule/src/main/kotlin/pl",
+                "/testModule/src/main/kotlin/pl/droidsonroids",
+                "/testModule/src/main/kotlin/pl/droidsonroids/composekit",
+                "/testModule/src/main/kotlin/pl/droidsonroids/composekit/testmodule",
                 "/testModule/src/test",
-                "/testModule/src/test/java",
-                "/testModule/src/test/java/com",
-                "/testModule/src/test/java/com/dor",
-                "/testModule/src/test/java/com/dor/compose",
-                "/testModule/src/test/java/com/dor/compose/playground",
-                "/testModule/src/test/java/com/dor/compose/playground/testmodule"
+                "/testModule/src/test/kotlin",
+                "/testModule/src/test/kotlin/pl",
+                "/testModule/src/test/kotlin/pl/droidsonroids",
+                "/testModule/src/test/kotlin/pl/droidsonroids/composekit",
+                "/testModule/src/test/kotlin/pl/droidsonroids/composekit/testmodule",
             )
         }
     }
