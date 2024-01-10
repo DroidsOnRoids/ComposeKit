@@ -3,7 +3,6 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import pl.droidsonroids.composekit.configuration.applyAndroidCommons
-import pl.droidsonroids.composekit.configuration.configureJava
 import pl.droidsonroids.composekit.configuration.configureKotlin
 
 class AndroidAppConventionPlugin : Plugin<Project> {
@@ -13,7 +12,6 @@ class AndroidAppConventionPlugin : Plugin<Project> {
             pluginManager.apply("com.android.application")
             pluginManager.apply("org.jetbrains.kotlin.android")
 
-            configureJava()
             configureKotlin()
             configure<ApplicationExtension> {
                 defaultConfig.targetSdk = 33
