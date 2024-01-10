@@ -58,10 +58,7 @@ fun <T> DragAndDropList(
                 dragDropState = dragDropState,
                 index = index
             ) { isDragging ->
-                itemContent(
-                    item = item,
-                    isDragging = isDragging
-                )
+                itemContent(item, isDragging)
             }
         }
     }
@@ -94,11 +91,13 @@ private fun rememberDragDropState(
 private fun <T> List<T>.withReplacedAt(fromIndex: Int, toIndex: Int) =
     toMutableList().apply { add(toIndex, removeAt(fromIndex)) }
 
-private fun Modifier.dragContainer(dragDropState: DragDropState) = pointerInput(dragDropState) {
-    detectDragGesturesAfterLongPress(
-        onDrag = { _, offset -> dragDropState.onDrag(offset) },
-        onDragStart = { offset -> dragDropState.onDragStart(offset) },
-        onDragEnd = { dragDropState.onDragInterrupted() },
-        onDragCancel = { dragDropState.onDragInterrupted() }
-    )
-}
+private fun Modifier.dragContainer(dragDropState: DragDropState) = then(
+    pointerInput(dragDropState) {
+        detectDragGesturesAfterLongPress(
+            onDrag = { _, offset -> dragDropState.onDrag(offset) },
+            onDragStart = { offset -> dragDropState.onDragStart(offset) },
+            onDragEnd = { dragDropState.onDragInterrupted() },
+            onDragCancel = { dragDropState.onDragInterrupted() }
+        )
+    }
+)

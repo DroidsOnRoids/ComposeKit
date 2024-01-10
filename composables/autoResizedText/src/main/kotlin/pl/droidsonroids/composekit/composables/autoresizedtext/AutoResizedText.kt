@@ -13,6 +13,14 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 
+/**
+ * Renders auto-resized text, adjusting its font size to fit within a specified minimum size.
+ *
+ * @param modifier The modifier to apply to this composable.
+ * @param text The text to be displayed.
+ * @param style The style to be applied to the text. Defaults to the current [LocalTextStyle].
+ * @param minFontSize The minimum font size that the text should have. Defaults to `11.sp`.
+ */
 @Composable
 fun AutoResizedText(
     modifier: Modifier = Modifier,

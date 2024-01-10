@@ -58,6 +58,22 @@ import kotlin.math.roundToInt
 
 private val TopTitleAlphaEasing = CubicBezierEasing(.8f, 0f, .8f, .15f)
 
+/**
+ * Creates a parallax effect in the app bar with an expanded background.
+ *
+ * @param title The content to be displayed as the title.
+ * @param expandedBackground The content for the expanded background of the app bar.
+ * @param modifier The modifier to apply to the entire app bar.
+ * @param navigationIcon The content for the navigation icon.
+ * @param actions The content for the actions in the app bar.
+ * @param windowInsets The window insets applied to the app bar. Defaults to [TopAppBarDefaults.windowInsets].
+ * @param colors The color configuration for the collapsed app bar [CollapsedAppBarColors].
+ * @param collapsedAppBarHeight The height of the collapsed app bar.
+ * @param titleTextStyle The text style for the title.
+ * @param titleVerticalArrangement The vertical arrangement of the title content.
+ * @param titleHorizontalArrangement The horizontal arrangement of the title content.
+ * @param scrollBehavior The scroll behavior for the app bar, implementing [TopAppBarScrollBehavior].
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Suppress("CyclomaticComplexMethod")
 @Composable
@@ -69,9 +85,10 @@ fun ParallaxAppBar(
     actions: @Composable RowScope.() -> Unit = {},
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
     colors: CollapsedAppBarColors = CollapsedAppBarColors(
-        navigationIconContentColor = Color.Green,
-        titleContentColor = Color.Cyan,
-        actionIconContentColor = Color.Magenta,
+        navigationIconContentColor = Color.White,
+        titleContentColor = Color.White,
+        actionIconContentColor = Color.White,
+        containerColor = Color.Black
     ),
     collapsedAppBarHeight: Dp = 64.dp,
     titleTextStyle: TextStyle = MaterialTheme.typography.headlineSmall,
@@ -144,7 +161,7 @@ private fun ParallaxAppBar(
     // This will potentially animate or interpolate a transition between the container color and the
     // container's scrolled color according to the app bar's scroll state.
     val colorTransitionFraction = scrollBehavior?.state?.collapsedFraction ?: 0f
-    val appBarContainerColor by rememberUpdatedState(Color.Blue)
+    val appBarContainerColor by rememberUpdatedState(colors.containerColor)
     val colorTransitionFraction2 = scrollBehavior?.state?.collapsedFraction ?: 0f
 
     // Wrap the given actions in a Row.
@@ -396,10 +413,19 @@ private suspend fun settleAppBar(
     return Velocity(0f, remainingVelocity)
 }
 
+/**
+ * Represents the color configuration for the collapsed app bar in a [ParallaxAppBar].
+ *
+ * @property navigationIconContentColor The color for the content of the navigation icon.
+ * @property titleContentColor The color for the content of the title.
+ * @property actionIconContentColor The color for the content of the action icons.
+ * @property containerColor The color for the background container of the app bar.
+ */
 class CollapsedAppBarColors(
     val navigationIconContentColor: Color,
     val titleContentColor: Color,
     val actionIconContentColor: Color,
+    val containerColor: Color,
 )
 
 private fun Modifier.invisible() = this.alpha(0f)
