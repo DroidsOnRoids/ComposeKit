@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.dor.compose.playground.composables.autoresizedtext"
+    namespace = "pl.droidsonroids.composekit.composables.autoresizedtext"
 }
 
 dependencies {

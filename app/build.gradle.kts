@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.dor.compose.playground"
+    namespace = "pl.droidsonroids.composekit"
 
     buildTypes {
         named("release").configure {

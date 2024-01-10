@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.dor.compose.playground.composables.draganddroplist"
+    namespace = "pl.droidsonroids.composekit.composables.dragdroplist"
 }
 
 dependencies {

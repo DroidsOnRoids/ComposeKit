@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name=".ComposePlaygroundApplication"
+        android:name="pl.droidsonroids.composekit.ComposeKitApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="Compose Playground"
+        android:label="ComposeKitSample"
         android:supportsRtl="true"
         tools:replace="android:label,android:allowBackup">
 
         <activity
-            android:name=".MainActivity"
+            android:name="pl.droidsonroids.composekit.MainActivity"
             android:theme="@style/AppTheme"
             android:exported="true">
             <intent-filter>

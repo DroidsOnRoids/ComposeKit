@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.dor.compose.playground.composables.pulltorefresh"
+    namespace = "pl.droidsonroids.composekit.composables.pulltorefresh"
 }
 
 dependencies {

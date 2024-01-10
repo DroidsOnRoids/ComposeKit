@@ -15,6 +15,8 @@ dependencyResolutionManagement {
     }
 }
 
+rootProject.name = "ComposeKit"
+
 include(":app")
 
 include(":composables:utils")
