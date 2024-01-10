@@ -30,6 +30,15 @@ import kotlin.math.roundToInt
 
 private val TOOLBAR_HEIGHT = 56.dp
 
+/**
+ * Creates a scrollable layout with a foldable toolbar effect.
+ *
+ * @param modifier The modifier to apply to the entire composable.
+ * @param isToolbarVisible Flag indicating whether the toolbar is initially visible.
+ * @param toolbarHeight The height of the toolbar.
+ * @param topBar The composable representing the top bar content.
+ * @param content The composable representing the scrollable content.
+ */
 @Composable
 fun ScrollableWithFoldableToolbar(
     modifier: Modifier = Modifier,

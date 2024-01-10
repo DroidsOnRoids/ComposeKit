@@ -28,7 +28,7 @@ internal fun Modifier.customPullRefreshIndicatorTransform(
     state: PullRefreshState,
     refreshing: Boolean,
     topSpacing: Dp,
-) = composed(
+) = this.composed(
     inspectorInfo = debugInspectorInfo {
         name = "customPullRefreshIndicatorTransform"
         properties["state"] = state
