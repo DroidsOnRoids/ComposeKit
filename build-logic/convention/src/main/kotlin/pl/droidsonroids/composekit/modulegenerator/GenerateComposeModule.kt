@@ -16,7 +16,7 @@ internal class GenerateComposeModule(private val separatorProvider: SeparatorPro
         val path = nutshell.getPath()
         val name = nutshell.getModuleName()
         val packageName = PlaygroundPackageBase + nutshell.lowercase(Locale.ENGLISH)
-        generateModule(rootDir, name, packageName, path)
+        generateModule(rootDir, name, packageName, path, ModuleType.ComposeLibrary)
     }
 
     private fun String.getModuleName(): String = substring(lastIndexOf(".") + 1)
