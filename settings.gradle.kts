@@ -1,5 +1,3 @@
-import com.android.build.api.dsl.SettingsExtension
-
 pluginManagement {
     includeBuild("build-logic")
     repositories {
@@ -18,16 +16,6 @@ dependencyResolutionManagement {
 }
 
 include(":app")
-
-plugins {
-    id("com.android.settings") version "8.2.1"
-}
-
-@Suppress("UnstableApiUsage")
-extensions.getByType(SettingsExtension::class).apply {
-    compileSdk = 34
-    minSdk = 24
-}
 
 include(":composeDestinationsLibrary")
 include(":composables:button")

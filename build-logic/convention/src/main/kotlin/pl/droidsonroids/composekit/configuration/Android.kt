@@ -7,7 +7,10 @@ import pl.droidsonroids.composekit.utils.ContinuousIntegration
 internal fun Project.applyAndroidCommons(
     extension: CommonExtension<*, *, *, *, *>,
 ) = extension.apply {
+    compileSdk = 34
+
     defaultConfig {
+        minSdk = 21
         vectorDrawables.useSupportLibrary = true
     }
 
