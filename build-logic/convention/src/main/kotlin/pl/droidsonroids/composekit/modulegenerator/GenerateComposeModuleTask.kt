@@ -46,6 +46,6 @@ abstract class GenerateComposeModuleTask : DefaultTask() {
         private const val usage = "Usage: ./gradlew $taskName " +
             "-P$paramNutshell=module.package.path.ModuleName" +
             "\n will generate module in path ./module/package/path/ModuleName " +
-            "with package com.dor.compose.playground.module.package.path.modulename"
+            "with package ${GenerateComposeModule.PackageBase}module.package.path.modulename"
     }
 }

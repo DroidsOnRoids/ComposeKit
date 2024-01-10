@@ -51,13 +51,13 @@ internal class GenerateModule(private val separatorProvider: SeparatorProvider) 
         val mainDir = make(dir, "src${separatorProvider.separator}main")
 
         generateRes(mainDir)
-        generateJava(mainDir, packageName)
+        generateKotlin(mainDir, packageName)
     }
 
     private fun generateSrcTest(dir: File, packageName: String) {
         val testDir = make(dir, "src${separatorProvider.separator}test")
 
-        generateJava(testDir, packageName)
+        generateKotlin(testDir, packageName)
     }
 
     private fun generateRes(dir: File) {
@@ -66,8 +66,8 @@ internal class GenerateModule(private val separatorProvider: SeparatorProvider) 
         make(resDir, "values")
     }
 
-    private fun generateJava(dir: File, packageName: String) {
-        val javaDir = make(dir, "java")
+    private fun generateKotlin(dir: File, packageName: String) {
+        val javaDir = make(dir, "kotlin")
         make(javaDir, packageName.toPath())
     }
 

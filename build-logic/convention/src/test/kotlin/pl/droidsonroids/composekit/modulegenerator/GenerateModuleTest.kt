@@ -44,15 +44,15 @@ internal class GenerateModuleTest {
         "/test/module/path2d/testModule/src/main/res",
         "/test/module/path2d/testModule/src/main/res/layout",
         "/test/module/path2d/testModule/src/main/res/values",
-        "/test/module/path2d/testModule/src/main/java",
-        "/test/module/path2d/testModule/src/main/java/io",
-        "/test/module/path2d/testModule/src/main/java/io/module",
-        "/test/module/path2d/testModule/src/main/java/io/module/test2d",
+        "/test/module/path2d/testModule/src/main/kotlin",
+        "/test/module/path2d/testModule/src/main/kotlin/io",
+        "/test/module/path2d/testModule/src/main/kotlin/io/module",
+        "/test/module/path2d/testModule/src/main/kotlin/io/module/test2d",
         "/test/module/path2d/testModule/src/test",
-        "/test/module/path2d/testModule/src/test/java",
-        "/test/module/path2d/testModule/src/test/java/io",
-        "/test/module/path2d/testModule/src/test/java/io/module",
-        "/test/module/path2d/testModule/src/test/java/io/module/test2d"
+        "/test/module/path2d/testModule/src/test/kotlin",
+        "/test/module/path2d/testModule/src/test/kotlin/io",
+        "/test/module/path2d/testModule/src/test/kotlin/io/module",
+        "/test/module/path2d/testModule/src/test/kotlin/io/module/test2d"
     )
 
     @Before
