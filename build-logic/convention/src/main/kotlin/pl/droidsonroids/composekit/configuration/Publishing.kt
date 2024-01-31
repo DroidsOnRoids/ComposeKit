@@ -7,12 +7,12 @@ import org.gradle.kotlin.dsl.configure
 import pl.droidsonroids.composekit.publishing.PublishingDefaults
 
 @Suppress("UnstableApiUsage")
-internal fun Project.configureMavenPublish() {
+internal fun Project.configureMavenPublish(version: String) {
     val pomArtifactId = findProperty(PublishingDefaults.ArtifactIdPropertyName) as? String ?: name
     val pomDescription = findProperty(PublishingDefaults.DescriptionPropertyName) as? String ?: ""
 
     configure<MavenPublishBaseExtension> {
-        coordinates(PublishingDefaults.BaseGroup, pomArtifactId, PublishingDefaults.Version)
+        coordinates(PublishingDefaults.BaseGroup, pomArtifactId, version)
         setPom(pomDescription)
         publishToMavenCentral(
             host = SonatypeHost.DEFAULT,
