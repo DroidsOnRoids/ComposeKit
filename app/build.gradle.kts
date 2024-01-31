@@ -38,6 +38,6 @@ dependencies {
     implementation(project(":composables:pullToRefresh"))
     implementation(project(":composables:autoresizedtext"))
     implementation(project(":composables:collapsingtoolbar"))
-    implementation(project(":composables:foldableToolbar"))
+    implementation(project(":composables:foldabletoolbar"))
     implementation(project(":composables:draganddroplist"))
 }
