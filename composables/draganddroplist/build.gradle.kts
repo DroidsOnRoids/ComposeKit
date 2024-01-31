@@ -11,5 +11,5 @@ android {
 }
 
 dependencies {
-    implementation(project(":composables:utils"))
+    implementation(projects.composables.utils)
 }
