@@ -36,7 +36,7 @@ dependencies {
 
     implementation(project(":composables:theme"))
     implementation(project(":composables:pullToRefresh"))
-    implementation(project(":composables:autoResizedText"))
+    implementation(project(":composables:autoresizedtext"))
     implementation(project(":composables:collapsing-toolbar"))
     implementation(project(":composables:foldableToolbar"))
     implementation(project(":composables:draganddroplist"))
