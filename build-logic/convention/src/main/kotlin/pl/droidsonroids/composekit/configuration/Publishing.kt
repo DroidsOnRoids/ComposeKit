@@ -6,6 +6,7 @@ import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import pl.droidsonroids.composekit.publishing.PublishingDefaults
 
+@Suppress("UnstableApiUsage")
 internal fun Project.configureMavenPublish() {
     val pomArtifactId = findProperty(PublishingDefaults.ArtifactIdPropertyName) as? String ?: name
     val pomDescription = findProperty(PublishingDefaults.DescriptionPropertyName) as? String ?: ""
@@ -21,6 +22,7 @@ internal fun Project.configureMavenPublish() {
     }
 }
 
+@Suppress("UnstableApiUsage")
 private fun MavenPublishBaseExtension.setPom(pomDescription: String) {
     pom {
         name.set(PublishingDefaults.Name)
