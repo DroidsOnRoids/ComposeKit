@@ -21,7 +21,7 @@ include(":app")
 
 include(":composables:utils")
 include(":composables:theme")
-include(":composables:pullToRefresh")
+include(":composables:pulltorefresh")
 include(":composables:autoresizedtext")
 include(":composables:collapsingtoolbar")
 include(":composables:foldabletoolbar")
