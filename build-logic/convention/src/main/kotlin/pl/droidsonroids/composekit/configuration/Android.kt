@@ -23,8 +23,4 @@ internal fun Project.applyAndroidCommons(
     }
 
     buildFeatures.viewBinding = true
-
-    packaging {
-        resources.excludes.add("META-INF/**")
-    }
 }
