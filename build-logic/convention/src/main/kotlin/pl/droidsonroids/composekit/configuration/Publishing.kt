@@ -40,5 +40,10 @@ private fun MavenPublishBaseExtension.setPom(pomDescription: String) {
             connection.set(PublishingDefaults.ScmConnection)
             developerConnection.set(PublishingDefaults.ScmDevConnection)
         }
+        developers {
+            developer {
+                id.set(PublishingDefaults.DeveloperScmId)
+            }
+        }
     }
 }

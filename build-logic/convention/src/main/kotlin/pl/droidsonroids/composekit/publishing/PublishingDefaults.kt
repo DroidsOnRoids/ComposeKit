@@ -9,6 +9,7 @@ internal object PublishingDefaults {
     const val ScmUrl = "https://github.com/DroidsOnRoids/ComposeKit"
     const val ScmConnection = "git@github.com:DroidsOnRoids/ComposeKit.git"
     const val ScmDevConnection = "git@github.com:DroidsOnRoids/ComposeKit.git"
+    const val DeveloperScmId = "pawgli"
     const val LicenseName = "MIT License"
     const val LicenseUrl = "https://github.com/DroidsOnRoids/ComposeKit/blob/master/LICENSE"
     const val BaseGroup = "pl.droidsonroids.composekit"
