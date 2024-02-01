@@ -17,6 +17,7 @@ mockk = "1.13.9"
 composeDestinations = "1.9.57"
 dagger = "2.50"
 vanniktechMavenPublish = "0.27.0"
+composeKit = "0.1.2"
 
 [libraries]
 gradlePlugins-android = { group = "com.android.tools.build", name = "gradle", version.ref = "androidPlugin" }
@@ -50,6 +51,16 @@ dagger = { group = "com.google.dagger", name = "dagger", version.ref = "dagger" 
 daggerCompiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "dagger" }
 
 vanniktech-maven-publish = { module = "com.vanniktech.maven.publish:com.vanniktech.maven.publish.gradle.plugin", version.ref = "vanniktechMavenPublish" }
+
+# Single dependency for all the ComposeKit components
+composeKit = { module = "pl.droidsonroids.composekit:composekit", version.ref = "composeKit" }
+
+# Individual dependencies for each ComposeKit component
+composeKit-autoResizedText = { module = "pl.droidsonroids.composekit:autoresizedtext", version.ref = "composeKit" }
+composeKit-collapsingToolbar = { module = "pl.droidsonroids.composekit:collapsingtoolbar", version.ref = "composeKit" }
+composeKit-dragAndDropList = { module = "pl.droidsonroids.composekit:draganddroplist", version.ref = "composeKit" }
+composeKit-foldableToolbar = { module = "pl.droidsonroids.composekit:foldabletoolbar", version.ref = "composeKit" }
+composeKit-pullToRefresh = { module = "pl.droidsonroids.composekit:pulltorefresh", version.ref = "composeKit" }
 
 [bundles]
 compose-basic = ["androidX-compose-ui", "androidX-compose-material", "androidX-compose-material3", "androidX-compose-foundation", "androidX-compose-preview", "androidX-compose-runtime"]
