@@ -1,0 +1,16 @@
+name: Publish ComposeKit
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  start_bitrise_workflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger workflow with curl
+        env:
+          VERSION_NAME: ${{ github.event.release.name }}
+          BUILD_TRIGGER_TOKEN: ${{ secrets.BITRISE_BUILD_TRIGGER_TOKEN }}
+        run: |-
+          curl https://app.bitrise.io/app/199a4f43-809c-431c-89db-7d402904163e/build/start.json -L --data '{"build_params":{"branch":"master","workflow_id":"publish","environments":[{"mapped_to":"VERSION_NAME","value":"'$VERSION_NAME'","is_expand":true}]},"hook_info":{"build_trigger_token":"'$BUILD_TRIGGER_TOKEN'","type":"bitrise"},"triggered_by":"curl"}'
