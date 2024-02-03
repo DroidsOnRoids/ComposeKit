@@ -14,5 +14,4 @@ dependencies {
     api(projects.composables.collapsingtoolbar)
     api(projects.composables.draganddroplist)
     api(projects.composables.foldabletoolbar)
-    api(projects.composables.pulltorefresh)
 }
