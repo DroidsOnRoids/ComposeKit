@@ -25,6 +25,9 @@ fun AutoResizedTextScreen() {
         verticalArrangement = Arrangement.spacedBy(space = 16.dp, alignment = Alignment.CenterVertically)
     ) {
         Text(text = text, style = TextStyle(fontSize = 26.sp), softWrap = false, color = Color.Black)
-        AutoResizedText(text = text, style = TextStyle(fontSize = 26.sp, color = Color.Blue))
+        AutoResizedText(
+            text = text,
+            style = TextStyle(fontSize = 26.sp, color = Color.Blue)
+        )
     }
 }
