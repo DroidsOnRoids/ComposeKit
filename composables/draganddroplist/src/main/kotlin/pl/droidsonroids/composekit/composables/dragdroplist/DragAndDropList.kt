@@ -32,8 +32,8 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun <T> DragAndDropList(
-    modifier: Modifier,
     items: List<T>,
+    modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(16.dp),
     verticalArrangement: Arrangement.Vertical = Arrangement.spacedBy(16.dp),
     onDragEnd: (reorderedList: List<T>) -> Unit,
