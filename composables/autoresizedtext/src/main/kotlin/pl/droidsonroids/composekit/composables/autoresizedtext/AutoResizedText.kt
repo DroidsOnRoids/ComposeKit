@@ -23,8 +23,8 @@ import androidx.compose.ui.unit.sp
  */
 @Composable
 fun AutoResizedText(
-    modifier: Modifier = Modifier,
     text: String,
+    modifier: Modifier = Modifier,
     style: TextStyle = LocalTextStyle.current,
     minFontSize: TextUnit = 11.sp,
 ) {
