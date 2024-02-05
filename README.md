@@ -10,13 +10,13 @@ Include required dependencies in your module's `build.gradle` file.
 
 ```kotlin
 // Single dependency for all the ComposeKit components
-implementation("pl.droidsonroids.composekit:composekit:0.1.2")
+implementation("pl.droidsonroids.composekit:composekit:0.2.0")
 
 // Individual dependencies for each ComposeKit component
-implementation("pl.droidsonroids.composekit:autoresizedtext:0.1.2")
-implementation("pl.droidsonroids.composekit:draganddroplist:0.1.2")
-implementation("pl.droidsonroids.composekit:collapsingtoolbar:0.1.2")
-implementation("pl.droidsonroids.composekit:foldabletoolbar:0.1.2")
+implementation("pl.droidsonroids.composekit:autoresizedtext:0.2.0")
+implementation("pl.droidsonroids.composekit:draganddroplist:0.2.0")
+implementation("pl.droidsonroids.composekit:collapsingtoolbar:0.2.0")
+implementation("pl.droidsonroids.composekit:foldabletoolbar:0.2.0")
 ```
 
 ## 📝 Usage
