@@ -35,7 +35,7 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.pow
 
-/*
+/**
  * The implementation is based on the PullRefreshIndicator created by Google.
  * Introduced changes:
  *  - Removed the shape and the background
