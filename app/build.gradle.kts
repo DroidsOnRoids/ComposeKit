@@ -34,11 +34,11 @@ dependencies {
 
     implementation(libs.androidX.compose.navigation)
 
+    implementation(projects.composables.pulltorefresh)
     implementation(projects.composables.theme)
 
     implementation(libs.composeKit.autoResizedText)
     implementation(libs.composeKit.collapsingToolbar)
     implementation(libs.composeKit.dragAndDropList)
     implementation(libs.composeKit.foldableToolbar)
-    implementation(libs.composeKit.pullToRefresh)
 }

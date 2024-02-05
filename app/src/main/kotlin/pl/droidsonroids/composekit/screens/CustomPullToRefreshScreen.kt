@@ -22,9 +22,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import pl.droidsonroids.composekit.composables.pulltorefresh.CustomPullRefreshIndicator
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import pl.droidsonroids.composekit.composables.pulltorefresh.CustomPullRefreshIndicator
 
 @Composable
 @OptIn(ExperimentalMaterialApi::class)
