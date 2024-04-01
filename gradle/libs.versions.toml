@@ -1,6 +1,6 @@
 [versions]
 androidPlugin = "8.2.2"
-detekt = "1.23.4"
+detekt = "1.23.6"
 kotlin = "1.9.21"
 androidXAppCompat = "1.6.1"
 material = "1.11.0"
