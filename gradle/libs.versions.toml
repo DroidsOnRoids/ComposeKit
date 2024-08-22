@@ -16,7 +16,7 @@ ksp = "1.9.22-1.0.17"
 mockk = "1.13.12"
 composeDestinations = "1.9.57"
 dagger = "2.52"
-vanniktechMavenPublish = "0.27.0"
+vanniktechMavenPublish = "0.29.0"
 composeKit = "0.2.0"
 
 [libraries]
