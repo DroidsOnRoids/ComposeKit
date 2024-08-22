@@ -7,7 +7,7 @@ kotlin = "2.0.20"
 androidXAppCompat = "1.6.1"
 material = "1.11.0"
 # TODO on 1.2.0: Replace material PullToRefresh with material3 equivalent, remove compose-material dependency
-material3 = "1.1.2"
+material3 = "1.2.1"
 androidXComposeBom = "2023.10.01"
 navigationCompose = "2.7.6"
 assertJ = "3.25.3"
