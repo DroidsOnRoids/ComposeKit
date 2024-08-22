@@ -5,7 +5,7 @@ import org.gradle.api.Project
 import pl.droidsonroids.composekit.utils.ContinuousIntegration
 
 internal fun Project.applyAndroidCommons(
-    extension: CommonExtension<*, *, *, *, *>,
+    extension: CommonExtension<*, *, *, *, *, *>,
 ) = extension.apply {
     compileSdk = 34
 

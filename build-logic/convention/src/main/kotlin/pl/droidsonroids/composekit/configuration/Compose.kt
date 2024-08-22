@@ -6,7 +6,7 @@ import org.gradle.kotlin.dsl.dependencies
 import pl.droidsonroids.composekit.utils.libs
 
 internal fun Project.configureCompose(
-    extension: CommonExtension<*, *, *, *, *>,
+    extension: CommonExtension<*, *, *, *, *, *>,
 ) {
     extension.apply {
         buildFeatures {
