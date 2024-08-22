@@ -7,6 +7,7 @@ import pl.droidsonroids.composekit.configuration.configureCompose
 class AndroidLibraryComposeConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) = with(target) {
         pluginManager.apply("com.android.library")
+        pluginManager.apply("org.jetbrains.kotlin.plugin.compose")
 
         configure<LibraryExtension> {
             configureCompose(extension = this)

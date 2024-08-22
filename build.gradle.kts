@@ -4,6 +4,7 @@ plugins {
         alias(composekit.android.app.compose) apply false
         alias(composekit.android.library) apply false
         alias(composekit.android.library.compose) apply false
+        alias(libs.plugins.compose.compiler).apply(false)
         alias(composekit.publishing) apply false
         alias(composekit.module.generator)
         alias(composekit.detekt)
