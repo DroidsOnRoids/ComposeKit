@@ -2,7 +2,7 @@
 composeKit = "0.2.0"
 
 androidPlugin = "8.5.2"
-detekt = "1.23.6"
+detekt = "1.23.7"
 kotlin = "2.0.20"
 androidXAppCompat = "1.7.0"
 material = "1.11.0"
