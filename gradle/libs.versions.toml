@@ -15,7 +15,7 @@ junit = "4.13.2"
 kotlinPoet = "1.18.1"
 ksp = "2.0.0-1.0.24"
 mockk = "1.13.12"
-composeDestinations = "1.9.57"
+composeDestinations = "2.3.0"
 dagger = "2.52"
 vanniktechMavenPublish = "0.29.0"
 
